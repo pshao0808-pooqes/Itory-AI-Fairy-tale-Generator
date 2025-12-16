@@ -1,0 +1,815 @@
+/* ============================================
+   ✏️ 아이토리 - 북클럽 글쓰기 페이지 CSS (크림톤/클레이)
+   ============================================ */
+
+.bookclub-upload-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.bookclub-upload-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bookclub-upload-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.85;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.bookclub-upload-page__cloud::before,
+.bookclub-upload-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.bookclub-upload-page__cloud--1 {
+  width: 140px;
+  height: 55px;
+  top: 8%;
+  left: 5%;
+}
+
+.bookclub-upload-page__cloud--1::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 24px;
+}
+
+.bookclub-upload-page__cloud--1::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 60px;
+}
+
+.bookclub-upload-page__cloud--2 {
+  width: 160px;
+  height: 60px;
+  top: 12%;
+  right: 8%;
+}
+
+.bookclub-upload-page__cloud--2::before {
+  width: 72px;
+  height: 72px;
+  top: -36px;
+  left: 30px;
+}
+
+.bookclub-upload-page__cloud--2::after {
+  width: 55px;
+  height: 55px;
+  top: -26px;
+  left: 75px;
+}
+
+.bookclub-upload-page__cloud--3 {
+  width: 110px;
+  height: 42px;
+  top: 22%;
+  left: 12%;
+}
+
+.bookclub-upload-page__cloud--3::before {
+  width: 48px;
+  height: 48px;
+  top: -24px;
+  left: 18px;
+}
+
+.bookclub-upload-page__cloud--3::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 46px;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.bookclub-upload-page__main {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+  padding-bottom: 160px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   🏷️ 헤더 타이틀
+   ============================================ */
+.bookclub-upload-page__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 24px;
+  margin-bottom: 28px;
+  box-shadow:
+    0 6px 0 #E8D4A0,
+    0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.bookclub-upload-page__title-icon {
+  font-size: 48px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.bookclub-upload-page__title-content {
+  flex: 1;
+}
+
+.bookclub-upload-page__title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.bookclub-upload-page__subtitle {
+  font-size: 16px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* ============================================
+   📝 폼 카드
+   ============================================ */
+.bookclub-upload-page__form {
+  background: white;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow:
+    0 8px 0 #E8E0D4,
+    0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   📋 필드 공통
+   ============================================ */
+.bookclub-upload-page__field {
+  margin-bottom: 28px;
+}
+
+.bookclub-upload-page__field label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 14px;
+}
+
+.bookclub-upload-page__field label svg {
+  color: #F5A623;
+}
+
+.bookclub-upload-page__ai-badge {
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 0 #D4820A;
+}
+
+.bookclub-upload-page__count {
+  font-size: 13px;
+  font-weight: 500;
+  color: #8B7D6B;
+  margin-left: auto;
+}
+
+/* ============================================
+   📝 제목 입력
+   ============================================ */
+.bookclub-upload-page__title-input-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.bookclub-upload-page__title-input-wrapper input {
+  flex: 1;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 3px solid #E8E0D4;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  color: #3D3425;
+  background: #FDFCFA;
+  transition: all 0.3s ease;
+}
+
+.bookclub-upload-page__title-input-wrapper input:focus {
+  outline: none;
+  border-color: #F5A623;
+  background: white;
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.15);
+}
+
+.bookclub-upload-page__title-input-wrapper input::placeholder {
+  color: #C4B8A8;
+}
+
+.bookclub-upload-page__regenerate-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border: 3px solid #81C784;
+  border-radius: 16px;
+  color: #4CAF50;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #66BB6A;
+}
+
+.bookclub-upload-page__regenerate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #66BB6A;
+}
+
+.bookclub-upload-page__regenerate-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #66BB6A;
+}
+
+.bookclub-upload-page__regenerate-btn.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   #️⃣ 해시태그
+   ============================================ */
+.bookclub-upload-page__hashtag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bookclub-upload-page__hashtag-btn {
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #F5F0E8 0%, #EDE7DD 100%);
+  border: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8B7D6B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 0 #E0D8CC;
+}
+
+.bookclub-upload-page__hashtag-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E0D8CC;
+}
+
+.bookclub-upload-page__hashtag-btn.selected {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border-color: #42A5F5;
+  color: #1976D2;
+  box-shadow: 0 3px 0 #64B5F6;
+}
+
+/* ============================================
+   📚 동화 첨부
+   ============================================ */
+.bookclub-upload-page__attach-btn {
+  width: 100%;
+  padding: 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border: 3px dashed #F5A623;
+  font-size: 18px;
+  font-weight: 700;
+  color: #F5A623;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #E8D4A0;
+}
+
+.bookclub-upload-page__attach-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 0 #E8D4A0;
+  background: linear-gradient(135deg, #FFECB3 0%, #FFE082 100%);
+}
+
+/* 선택된 동화 */
+.bookclub-upload-page__selected-story {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 20px;
+  border: 3px solid #81C784;
+  box-shadow: 0 4px 0 #66BB6A;
+}
+
+.bookclub-upload-page__story-preview {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bookclub-upload-page__story-emoji {
+  font-size: 44px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.bookclub-upload-page__story-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.bookclub-upload-page__story-meta {
+  font-size: 13px;
+  color: #689F38;
+  font-weight: 500;
+}
+
+.bookclub-upload-page__change-btn {
+  padding: 12px 22px;
+  background: white;
+  border: 2px solid #81C784;
+  border-radius: 14px;
+  color: #4CAF50;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 0 #A5D6A7;
+}
+
+.bookclub-upload-page__change-btn:hover {
+  background: #F1F8E9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #A5D6A7;
+}
+
+/* ============================================
+   📖 동화 선택 피커
+   ============================================ */
+.bookclub-upload-page__story-picker {
+  margin-top: 16px;
+  background: white;
+  border-radius: 20px;
+  border: 3px solid #E8E0D4;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookclub-upload-page__story-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #F8F4ED 0%, #F5F0E8 100%);
+  border-bottom: 2px solid #E8E0D4;
+}
+
+.bookclub-upload-page__story-picker-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.bookclub-upload-page__story-picker-header button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 2px solid #E8E0D4;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  color: #8B7D6B;
+  transition: all 0.2s ease;
+}
+
+.bookclub-upload-page__story-picker-header button:hover {
+  background: #FFF8E1;
+  border-color: #F5A623;
+  color: #F5A623;
+}
+
+.bookclub-upload-page__story-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.bookclub-upload-page__story-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 24px;
+  background: white;
+  border: none;
+  border-bottom: 2px solid #F5F0E8;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.bookclub-upload-page__story-item:hover {
+  background: #FFF8E1;
+}
+
+.bookclub-upload-page__story-item.selected {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.bookclub-upload-page__story-item:last-child {
+  border-bottom: none;
+}
+
+.bookclub-upload-page__story-item .bookclub-upload-page__story-emoji {
+  font-size: 36px;
+}
+
+.bookclub-upload-page__story-item .bookclub-upload-page__story-title {
+  font-size: 15px;
+}
+
+.bookclub-upload-page__story-item .bookclub-upload-page__story-meta {
+  color: #8B7D6B;
+}
+
+/* ============================================
+   🚀 게시하기 버튼
+   ============================================ */
+.bookclub-upload-page__submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #D4820A,
+    0 12px 32px rgba(245, 166, 35, 0.35);
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.bookclub-upload-page__submit-btn:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 0 #D4820A,
+    0 16px 40px rgba(245, 166, 35, 0.4);
+}
+
+.bookclub-upload-page__submit-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow:
+    0 3px 0 #D4820A,
+    0 6px 16px rgba(245, 166, 35, 0.3);
+}
+
+.bookclub-upload-page__submit-btn:disabled {
+  background: linear-gradient(135deg, #E0D8CC 0%, #D5CEC2 100%);
+  box-shadow: 0 4px 0 #C4B8A8;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.bookclub-upload-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bookclub-upload-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 70px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.bookclub-upload-page__tree {
+  position: absolute;
+  bottom: 55px;
+}
+
+.bookclub-upload-page__tree::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+}
+
+.bookclub-upload-page__tree::after {
+  content: '';
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(180deg, #81C784 0%, #66BB6A 50%, #4CAF50 100%);
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bookclub-upload-page__tree--1 {
+  left: 5%;
+}
+
+.bookclub-upload-page__tree--2 {
+  right: 8%;
+}
+
+.bookclub-upload-page__tree--2::after {
+  width: 48px;
+  height: 48px;
+  bottom: 20px;
+}
+
+.bookclub-upload-page__tree--2::before {
+  height: 24px;
+  width: 12px;
+}
+
+.bookclub-upload-page__bush {
+  position: absolute;
+  bottom: 55px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bookclub-upload-page__bush--1 {
+  left: 12%;
+  width: 38px;
+  height: 28px;
+}
+
+.bookclub-upload-page__bush--2 {
+  left: 45%;
+  width: 32px;
+  height: 24px;
+  bottom: 52px;
+}
+
+.bookclub-upload-page__bush--3 {
+  right: 15%;
+  width: 36px;
+  height: 26px;
+}
+
+.bookclub-upload-page__flower {
+  position: absolute;
+  bottom: 65px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.bookclub-upload-page__flower--1 {
+  left: 20%;
+  background: #F48FB1;
+}
+
+.bookclub-upload-page__flower--2 {
+  left: 55%;
+  background: #FFD54F;
+}
+
+.bookclub-upload-page__flower--3 {
+  right: 25%;
+  background: #CE93D8;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+  .bookclub-upload-page__main {
+    padding: 0 16px;
+    padding-bottom: 140px;
+  }
+
+  .bookclub-upload-page__cloud--3 {
+    display: none;
+  }
+
+  .bookclub-upload-page__header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 24px;
+  }
+
+  .bookclub-upload-page__title-icon {
+    font-size: 40px;
+  }
+
+  .bookclub-upload-page__title {
+    font-size: 26px;
+  }
+
+  .bookclub-upload-page__form {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .bookclub-upload-page__title-input-wrapper {
+    flex-direction: column;
+  }
+
+  .bookclub-upload-page__regenerate-btn {
+    justify-content: center;
+  }
+
+  .bookclub-upload-page__selected-story {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .bookclub-upload-page__story-preview {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bookclub-upload-page__landscape {
+    height: 100px;
+  }
+
+  .bookclub-upload-page__grass {
+    height: 55px;
+  }
+
+  .bookclub-upload-page__tree,
+  .bookclub-upload-page__bush,
+  .bookclub-upload-page__flower {
+    bottom: 42px;
+  }
+
+  .bookclub-upload-page__tree--2,
+  .bookclub-upload-page__bush--2,
+  .bookclub-upload-page__flower--2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bookclub-upload-page__main {
+    padding: 0 12px;
+    padding-bottom: 120px;
+  }
+
+  .bookclub-upload-page__cloud--1,
+  .bookclub-upload-page__cloud--2 {
+    display: none;
+  }
+
+  .bookclub-upload-page__header {
+    padding: 16px 20px;
+    border-radius: 20px;
+  }
+
+  .bookclub-upload-page__title-icon {
+    font-size: 36px;
+  }
+
+  .bookclub-upload-page__title {
+    font-size: 22px;
+  }
+
+  .bookclub-upload-page__subtitle {
+    font-size: 14px;
+  }
+
+  .bookclub-upload-page__form {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .bookclub-upload-page__field {
+    margin-bottom: 24px;
+  }
+
+  .bookclub-upload-page__field label {
+    font-size: 15px;
+  }
+
+  .bookclub-upload-page__title-input-wrapper input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .bookclub-upload-page__regenerate-btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .bookclub-upload-page__hashtag-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .bookclub-upload-page__attach-btn {
+    padding: 22px;
+    font-size: 16px;
+  }
+
+  .bookclub-upload-page__submit-btn {
+    padding: 18px;
+    font-size: 18px;
+    border-radius: 18px;
+  }
+
+  .bookclub-upload-page__landscape {
+    height: 80px;
+  }
+
+  .bookclub-upload-page__grass {
+    height: 45px;
+  }
+
+  .bookclub-upload-page__tree {
+    display: none;
+  }
+
+  .bookclub-upload-page__bush {
+    bottom: 35px;
+  }
+
+  .bookclub-upload-page__flower {
+    bottom: 40px;
+  }
+}

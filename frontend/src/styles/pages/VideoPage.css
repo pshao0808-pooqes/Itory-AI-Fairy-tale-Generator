@@ -1,0 +1,992 @@
+/* ============================================
+   🎬 아이토리 - 비디오 페이지 CSS (크림톤/클레이)
+   ============================================ */
+
+.video-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.video-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.video-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.85;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.video-page__cloud::before,
+.video-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.video-page__cloud--1 {
+  width: 140px;
+  height: 55px;
+  top: 8%;
+  left: 5%;
+}
+
+.video-page__cloud--1::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 24px;
+}
+
+.video-page__cloud--1::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 60px;
+}
+
+.video-page__cloud--2 {
+  width: 160px;
+  height: 60px;
+  top: 12%;
+  right: 8%;
+}
+
+.video-page__cloud--2::before {
+  width: 72px;
+  height: 72px;
+  top: -36px;
+  left: 30px;
+}
+
+.video-page__cloud--2::after {
+  width: 55px;
+  height: 55px;
+  top: -26px;
+  left: 75px;
+}
+
+.video-page__cloud--3 {
+  width: 110px;
+  height: 42px;
+  top: 20%;
+  left: 15%;
+}
+
+.video-page__cloud--3::before {
+  width: 48px;
+  height: 48px;
+  top: -24px;
+  left: 18px;
+}
+
+.video-page__cloud--3::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 46px;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.video-page__main {
+  position: relative;
+  z-index: 1;
+  padding: 0 32px;
+  padding-bottom: 160px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   🏷️ 타이틀 배너
+   ============================================ */
+.video-page__title-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 24px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 6px 0 #E8D4A0,
+    0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.video-page__title-icon {
+  font-size: 56px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.video-page__title-content {
+  flex: 1;
+}
+
+.video-page__title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.video-page__subtitle {
+  font-size: 16px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* ============================================
+   🎬 비디오 플레이어
+   ============================================ */
+.video-page__player-wrapper {
+  background: white;
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 8px 0 #E8E0D4,
+    0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+.video-page__player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #E8F5FF 0%, #D4ECFF 50%, #C4E4FF 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.video-page__player-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.video-page__player-emoji {
+  font-size: 100px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.video-page__player-text {
+  font-size: 20px;
+  color: #5D4E37;
+  font-weight: 600;
+}
+
+.video-page__play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-page__player:hover .video-page__play-overlay {
+  opacity: 1;
+}
+
+.video-page__play-overlay svg {
+  width: 80px;
+  height: 80px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  color: #F5A623;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.video-page__play-overlay:hover svg {
+  transform: scale(1.1);
+}
+
+/* 실제 비디오 요소 */
+.video-page__video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+/* 로딩바 스타일 */
+.video-page__loading-bar {
+  width: 100%;
+  max-width: 400px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 20px auto 12px;
+}
+
+.video-page__loading-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623 0%, #FF8C42 100%);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.video-page__loading-percent {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5D4E37;
+  margin-top: 8px;
+}
+
+/* ============================================
+   🎛️ 컨트롤 바
+   ============================================ */
+.video-page__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #F8F4ED;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.video-page__control-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #5D4E37;
+  box-shadow: 0 3px 0 #E0D8CC;
+  transition: all 0.2s ease;
+}
+
+.video-page__control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E0D8CC;
+}
+
+.video-page__control-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #E0D8CC;
+}
+
+.video-page__control-btn--restart {
+  width: 36px;
+  height: 36px;
+}
+
+.video-page__progress-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.video-page__progress {
+  flex: 1;
+  height: 8px;
+  background: #E0D8CC;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.video-page__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623 0%, #FF8C42 100%);
+  border-radius: 4px;
+  transition: width 0.1s ease;
+}
+
+.video-page__progress-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+}
+
+.video-page__time {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8B7D6B;
+  white-space: nowrap;
+}
+
+/* ============================================
+   📑 챕터 버튼
+   ============================================ */
+.video-page__chapters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.video-page__chapter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #F5F0E8;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 0 #E0D8CC;
+}
+
+.video-page__chapter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E0D8CC;
+}
+
+.video-page__chapter-btn.active {
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  border-color: transparent;
+  box-shadow: 0 4px 0 #D4820A;
+}
+
+.video-page__chapter-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5D4E37;
+}
+
+.video-page__chapter-btn.active .video-page__chapter-num {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.video-page__chapter-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5D4E37;
+}
+
+.video-page__chapter-btn.active .video-page__chapter-name {
+  color: white;
+}
+
+/* ============================================
+   🔘 액션 버튼들
+   ============================================ */
+.video-page__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.video-page__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-page__action-btn span {
+  white-space: nowrap;
+}
+
+.video-page__action-btn:hover {
+  transform: translateY(-4px);
+}
+
+.video-page__action-btn:active {
+  transform: translateY(2px);
+}
+
+.video-page__action-btn--download {
+  background: linear-gradient(135deg, #42A5F5 0%, #2196F3 100%);
+  box-shadow:
+    0 5px 0 #1976D2,
+    0 10px 24px rgba(33, 150, 243, 0.3);
+}
+
+.video-page__action-btn--download:hover {
+  box-shadow:
+    0 8px 0 #1976D2,
+    0 14px 32px rgba(33, 150, 243, 0.35);
+}
+
+.video-page__action-btn--save {
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  box-shadow:
+    0 5px 0 #D4820A,
+    0 10px 24px rgba(245, 166, 35, 0.3);
+}
+
+.video-page__action-btn--save:hover {
+  box-shadow:
+    0 8px 0 #D4820A,
+    0 14px 32px rgba(245, 166, 35, 0.35);
+}
+
+.video-page__action-btn--save.saved {
+  background: linear-gradient(135deg, #8BC34A 0%, #7CB342 100%);
+  box-shadow:
+    0 5px 0 #558B2F,
+    0 10px 24px rgba(139, 195, 74, 0.3);
+  cursor: default;
+}
+
+.video-page__action-btn--share {
+  background: linear-gradient(135deg, #EC407A 0%, #D81B60 100%);
+  box-shadow:
+    0 5px 0 #AD1457,
+    0 10px 24px rgba(236, 64, 122, 0.3);
+}
+
+.video-page__action-btn--share:hover {
+  box-shadow:
+    0 8px 0 #AD1457,
+    0 14px 32px rgba(236, 64, 122, 0.35);
+}
+
+/* ============================================
+   🎉 축하 팝업
+   ============================================ */
+.video-page__celebration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.video-page__celebration-modal {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 32px;
+  padding: 48px 64px;
+  text-align: center;
+  box-shadow:
+    0 12px 0 #E8D4A0,
+    0 24px 64px rgba(0, 0, 0, 0.25);
+  animation: celebrationBounce 0.5s ease;
+}
+
+.video-page__celebration-emoji {
+  font-size: 100px;
+  margin-bottom: 20px;
+  animation: celebrationPulse 1s infinite;
+}
+
+.video-page__celebration-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.video-page__celebration-subtitle {
+  font-size: 18px;
+  color: #8B7D6B;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.video-page__celebration-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.video-page__celebration-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F5A623;
+  animation: dotBounce 1.4s infinite ease-in-out both;
+}
+
+.video-page__celebration-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.video-page__celebration-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.video-page__celebration-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.video-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.video-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 70px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.video-page__tree {
+  position: absolute;
+  bottom: 55px;
+}
+
+.video-page__tree::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+}
+
+.video-page__tree::after {
+  content: '';
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(180deg, #81C784 0%, #66BB6A 50%, #4CAF50 100%);
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-page__tree--1 {
+  left: 5%;
+}
+
+.video-page__tree--2 {
+  right: 8%;
+}
+
+.video-page__tree--2::after {
+  width: 48px;
+  height: 48px;
+  bottom: 20px;
+}
+
+.video-page__tree--2::before {
+  height: 24px;
+  width: 12px;
+}
+
+.video-page__house {
+  position: absolute;
+  bottom: 55px;
+  right: 22%;
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(180deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 4px;
+  box-shadow: inset -3px -3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.video-page__house::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 31px solid transparent;
+  border-right: 31px solid transparent;
+  border-bottom: 28px solid #FF8A65;
+}
+
+.video-page__house::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  background: #8D6E63;
+  border-radius: 2px 2px 0 0;
+}
+
+.video-page__house-window {
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background: #81D4FA;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.video-page__house-window--left {
+  left: 6px;
+}
+
+.video-page__house-window--right {
+  right: 6px;
+}
+
+.video-page__bush {
+  position: absolute;
+  bottom: 55px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-page__bush--1 {
+  left: 12%;
+  width: 38px;
+  height: 28px;
+}
+
+.video-page__bush--2 {
+  left: 40%;
+  width: 32px;
+  height: 24px;
+  bottom: 52px;
+}
+
+.video-page__bush--3 {
+  right: 15%;
+  width: 36px;
+  height: 26px;
+}
+
+.video-page__flower {
+  position: absolute;
+  bottom: 65px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.video-page__flower--1 {
+  left: 20%;
+  background: #F48FB1;
+}
+
+.video-page__flower--2 {
+  left: 50%;
+  background: #FFD54F;
+}
+
+.video-page__flower--3 {
+  right: 25%;
+  background: #CE93D8;
+}
+
+/* ============================================
+   🎞️ 애니메이션
+   ============================================ */
+@keyframes celebrationBounce {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes celebrationPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes dotBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+  .video-page__main {
+    padding: 0 16px;
+    padding-bottom: 140px;
+  }
+
+  .video-page__cloud--3 {
+    display: none;
+  }
+
+  .video-page__title-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 24px;
+  }
+
+  .video-page__title-icon {
+    font-size: 48px;
+  }
+
+  .video-page__title {
+    font-size: 22px;
+  }
+
+  .video-page__subtitle {
+    font-size: 14px;
+  }
+
+  .video-page__player-wrapper {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .video-page__player {
+    border-radius: 16px;
+  }
+
+  .video-page__player-emoji {
+    font-size: 72px;
+  }
+
+  .video-page__controls {
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .video-page__control-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-page__progress-wrapper {
+    order: 10;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .video-page__chapters {
+    justify-content: center;
+  }
+
+  .video-page__chapter-btn {
+    padding: 10px 14px;
+    border-radius: 12px;
+  }
+
+  .video-page__chapter-num {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .video-page__chapter-name {
+    font-size: 12px;
+  }
+
+  .video-page__actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .video-page__action-btn {
+    padding: 18px 20px;
+  }
+
+  .video-page__landscape {
+    height: 100px;
+  }
+
+  .video-page__grass {
+    height: 55px;
+  }
+
+  .video-page__tree,
+  .video-page__bush,
+  .video-page__flower,
+  .video-page__house {
+    bottom: 42px;
+  }
+
+  .video-page__tree--2,
+  .video-page__bush--2,
+  .video-page__flower--2 {
+    display: none;
+  }
+
+  .video-page__celebration-modal {
+    padding: 36px 40px;
+    margin: 20px;
+  }
+
+  .video-page__celebration-emoji {
+    font-size: 72px;
+  }
+
+  .video-page__celebration-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-page__main {
+    padding: 0 12px;
+    padding-bottom: 120px;
+  }
+
+  .video-page__cloud--1,
+  .video-page__cloud--2 {
+    display: none;
+  }
+
+  .video-page__title-banner {
+    padding: 16px 20px;
+    border-radius: 20px;
+  }
+
+  .video-page__title-icon {
+    font-size: 40px;
+  }
+
+  .video-page__title {
+    font-size: 18px;
+  }
+
+  .video-page__player-wrapper {
+    padding: 12px;
+  }
+
+  .video-page__player-emoji {
+    font-size: 56px;
+  }
+
+  .video-page__player-text {
+    font-size: 16px;
+  }
+
+  .video-page__chapters {
+    gap: 6px;
+  }
+
+  .video-page__chapter-btn {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .video-page__action-btn {
+    font-size: 15px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .video-page__landscape {
+    height: 80px;
+  }
+
+  .video-page__grass {
+    height: 45px;
+  }
+
+  .video-page__tree,
+  .video-page__house {
+    display: none;
+  }
+
+  .video-page__bush {
+    bottom: 35px;
+  }
+
+  .video-page__flower {
+    bottom: 40px;
+  }
+}

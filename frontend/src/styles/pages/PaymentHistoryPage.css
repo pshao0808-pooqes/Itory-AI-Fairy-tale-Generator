@@ -1,0 +1,673 @@
+/* ============================================
+   🧾 아이토리 - 결제 내역 페이지 CSS (크림톤/클레이)
+   ============================================ */
+
+.payment-history-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg,
+            #FFF9F0 0%,
+            #F8F4ED 30%,
+            #F5F0E8 60%,
+            #F0EBE3 100%);
+    position: relative;
+    overflow-x: hidden;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.payment-history-page__bg-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.payment-history-page__cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    filter: blur(1px);
+    opacity: 0.85;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.payment-history-page__cloud::before,
+.payment-history-page__cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.payment-history-page__cloud--1 {
+    width: 140px;
+    height: 55px;
+    top: 8%;
+    left: 5%;
+}
+
+.payment-history-page__cloud--1::before {
+    width: 65px;
+    height: 65px;
+    top: -32px;
+    left: 24px;
+}
+
+.payment-history-page__cloud--1::after {
+    width: 50px;
+    height: 50px;
+    top: -22px;
+    left: 60px;
+}
+
+.payment-history-page__cloud--2 {
+    width: 160px;
+    height: 60px;
+    top: 12%;
+    right: 8%;
+}
+
+.payment-history-page__cloud--2::before {
+    width: 72px;
+    height: 72px;
+    top: -36px;
+    left: 30px;
+}
+
+.payment-history-page__cloud--2::after {
+    width: 55px;
+    height: 55px;
+    top: -26px;
+    left: 75px;
+}
+
+.payment-history-page__cloud--3 {
+    width: 110px;
+    height: 42px;
+    top: 22%;
+    left: 60%;
+}
+
+.payment-history-page__cloud--3::before {
+    width: 48px;
+    height: 48px;
+    top: -24px;
+    left: 18px;
+}
+
+.payment-history-page__cloud--3::after {
+    width: 38px;
+    height: 38px;
+    top: -16px;
+    left: 46px;
+}
+
+/* ============================================
+   🏷️ 헤더
+   ============================================ */
+.payment-history-page__header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+    border-radius: 0 0 32px 32px;
+    box-shadow:
+        0 6px 0 #CE93D8,
+        0 12px 32px rgba(156, 39, 176, 0.15);
+}
+
+.payment-history-page__back-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #CE93D8;
+    transition: all 0.2s ease;
+    color: #9C27B0;
+}
+
+.payment-history-page__back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 #CE93D8;
+}
+
+.payment-history-page__back-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #CE93D8;
+}
+
+.payment-history-page__header-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #7B1FA2;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.payment-history-page__content {
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+    padding-bottom: 160px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.payment-history-page__description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #8B7D6B;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* ============================================
+   📊 결제 요약
+   ============================================ */
+.payment-history-page__summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.payment-history-page__summary-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow:
+        0 4px 0 #E8E0D4,
+        0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.payment-history-page__summary-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.payment-history-page__summary-icon--blue {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    color: #2196F3;
+    box-shadow: 0 2px 0 #90CAF9;
+}
+
+.payment-history-page__summary-icon--green {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    color: #4CAF50;
+    box-shadow: 0 2px 0 #A5D6A7;
+}
+
+.payment-history-page__summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.payment-history-page__summary-label {
+    font-size: 12px;
+    color: #8B7D6B;
+}
+
+.payment-history-page__summary-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #3D3425;
+}
+
+/* ============================================
+   📋 결제 내역 섹션
+   ============================================ */
+.payment-history-page__section {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow:
+        0 5px 0 #E8E0D4,
+        0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.payment-history-page__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.payment-history-page__section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #3D3425;
+}
+
+.payment-history-page__section-icon {
+    font-size: 20px;
+}
+
+.payment-history-page__count {
+    padding: 6px 12px;
+    background: #F5F0E8;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8B7D6B;
+}
+
+/* ============================================
+   🧾 결제 내역 아이템
+   ============================================ */
+.payment-history-page__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-history-page__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    background: #FFF9F0;
+    border: 2px solid #F5F0E8;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.payment-history-page__item:hover {
+    background: #FFF8E1;
+    border-color: #FFE082;
+}
+
+.payment-history-page__item-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9C27B0;
+    box-shadow: 0 2px 0 #CE93D8;
+    flex-shrink: 0;
+}
+
+.payment-history-page__item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.payment-history-page__item-desc {
+    font-size: 15px;
+    font-weight: 700;
+    color: #3D3425;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.payment-history-page__item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8B7D6B;
+}
+
+.payment-history-page__item-date {
+    color: #8B7D6B;
+}
+
+.payment-history-page__item-divider {
+    color: #D4CBC0;
+}
+
+.payment-history-page__item-card {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.payment-history-page__item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.payment-history-page__item-amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3D3425;
+}
+
+.payment-history-page__item-status {
+    padding: 4px 10px;
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4CAF50;
+}
+
+/* ============================================
+   ⬇️ 다운로드 버튼
+   ============================================ */
+.payment-history-page__download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px;
+    background: white;
+    border: 3px solid #E8E0D4;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3D3425;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 0 #E8E0D4;
+}
+
+.payment-history-page__download-btn:hover {
+    background: #FFF8E1;
+    border-color: #FFE082;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #E8D4A0;
+}
+
+.payment-history-page__download-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #E8E0D4;
+}
+
+/* ============================================
+   📝 안내 문구
+   ============================================ */
+.payment-history-page__notice {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #E8E0D4;
+    box-shadow: 0 3px 0 #E8E0D4;
+}
+
+.payment-history-page__notice p {
+    font-size: 14px;
+    color: #8B7D6B;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.payment-history-page__notice p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.payment-history-page__landscape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.payment-history-page__grass {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    right: -5%;
+    height: 70px;
+    background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.payment-history-page__tree {
+    position: absolute;
+    bottom: 55px;
+}
+
+.payment-history-page__tree::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 28px;
+    background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+    border-radius: 4px;
+}
+
+.payment-history-page__tree::after {
+    content: '';
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(180deg, #81C784 0%, #66BB6A 50%, #4CAF50 100%);
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.payment-history-page__tree--1 {
+    left: 5%;
+}
+
+.payment-history-page__tree--2 {
+    right: 8%;
+}
+
+.payment-history-page__tree--2::after {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+}
+
+.payment-history-page__tree--2::before {
+    height: 24px;
+    width: 12px;
+}
+
+.payment-history-page__bush {
+    position: absolute;
+    bottom: 55px;
+    background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-history-page__bush--1 {
+    left: 12%;
+    width: 38px;
+    height: 28px;
+}
+
+.payment-history-page__bush--2 {
+    left: 45%;
+    width: 32px;
+    height: 24px;
+    bottom: 52px;
+}
+
+.payment-history-page__bush--3 {
+    right: 15%;
+    width: 36px;
+    height: 26px;
+}
+
+.payment-history-page__flower {
+    position: absolute;
+    bottom: 65px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.payment-history-page__flower--1 {
+    left: 20%;
+    background: #F48FB1;
+}
+
+.payment-history-page__flower--2 {
+    left: 55%;
+    background: #FFD54F;
+}
+
+.payment-history-page__flower--3 {
+    right: 25%;
+    background: #CE93D8;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+    .payment-history-page__content {
+        padding: 20px 16px;
+        padding-bottom: 140px;
+    }
+
+    .payment-history-page__header {
+        padding: 16px 20px;
+    }
+
+    .payment-history-page__header-title {
+        font-size: 20px;
+    }
+
+    .payment-history-page__cloud--3 {
+        display: none;
+    }
+
+    .payment-history-page__summary {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-history-page__landscape {
+        height: 100px;
+    }
+
+    .payment-history-page__grass {
+        height: 55px;
+    }
+
+    .payment-history-page__tree,
+    .payment-history-page__bush,
+    .payment-history-page__flower {
+        bottom: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-history-page__content {
+        padding: 16px 12px;
+        padding-bottom: 120px;
+    }
+
+    .payment-history-page__header {
+        padding: 14px 16px;
+    }
+
+    .payment-history-page__back-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .payment-history-page__header-title {
+        font-size: 18px;
+    }
+
+    .payment-history-page__cloud--1,
+    .payment-history-page__cloud--2 {
+        display: none;
+    }
+
+    .payment-history-page__section {
+        padding: 16px;
+    }
+
+    .payment-history-page__item {
+        padding: 14px;
+    }
+
+    .payment-history-page__item-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .payment-history-page__item-desc {
+        font-size: 14px;
+    }
+
+    .payment-history-page__item-meta {
+        flex-wrap: wrap;
+    }
+
+    .payment-history-page__download-btn {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    .payment-history-page__landscape {
+        height: 80px;
+    }
+
+    .payment-history-page__grass {
+        height: 45px;
+    }
+
+    .payment-history-page__tree {
+        display: none;
+    }
+
+    .payment-history-page__bush {
+        bottom: 35px;
+    }
+
+    .payment-history-page__flower {
+        bottom: 40px;
+    }
+}

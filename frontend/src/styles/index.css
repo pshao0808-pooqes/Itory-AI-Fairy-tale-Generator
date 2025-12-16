@@ -1,0 +1,254 @@
+/* =============================================
+   🌳 아이토리 메인 스타일시트
+   ============================================= */
+
+/* CSS 파일 임포트 */
+@import './variables.css';
+@import './animations.css';
+@import './components.css';
+
+/* ==================== 리셋 & 기본 스타일 ==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background: var(--gradient-pastel);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== 버튼 기본 스타일 ==================== */
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: all var(--transition-normal);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ==================== 입력 필드 기본 스타일 ==================== */
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* ==================== 링크 스타일 ==================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==================== 이미지 스타일 ==================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== 리스트 스타일 ==================== */
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==================== 레이아웃 유틸리티 ==================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+/* ==================== 텍스트 유틸리티 ==================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ==================== 간격 유틸리티 ==================== */
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+/* ==================== 그림자 유틸리티 ==================== */
+
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-md {
+  box-shadow: var(--card-shadow);
+}
+
+.shadow-lg {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== 둥근 모서리 유틸리티 ==================== */
+
+.rounded-sm { border-radius: 8px; }
+.rounded-md { border-radius: 12px; }
+.rounded-lg { border-radius: var(--card-radius); }
+.rounded-full { border-radius: 50%; }
+
+/* ==================== 페이지 공통 레이아웃 ==================== */
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 var(--spacing-xl);
+}
+
+.page-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.page-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ==================== 반응형 ==================== */
+
+@media (max-width: 1024px) {
+  .book-left-far,
+  .book-right-far {
+    display: none;
+  }
+  
+  .book-left {
+    transform: translateX(-180px) rotateY(25deg) scale(0.7);
+  }
+  
+  .book-right {
+    transform: translateX(180px) rotateY(-25deg) scale(0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --book-width-lg: 220px;
+    --book-height-lg: 280px;
+    --book-width-md: 160px;
+    --book-height-md: 200px;
+  }
+  
+  .page-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .page-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .book-carousel {
+    height: 380px;
+  }
+  
+  .book-left,
+  .book-right {
+    display: none;
+  }
+  
+  .carousel-nav-btn {
+    width: 44px;
+    height: 44px;
+  }
+}

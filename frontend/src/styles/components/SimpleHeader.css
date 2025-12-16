@@ -1,0 +1,156 @@
+/* ============================================
+   🌳 아이토리 - Simple Header CSS
+   ============================================ */
+
+.simple-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  position: relative;
+  z-index: 20;
+}
+
+.simple-header__left {
+  display: flex;
+  align-items: center;
+}
+
+.simple-header__right {
+  display: flex;
+  align-items: center;
+}
+
+/* 뒤로가기 버튼 */
+.simple-header__back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.simple-header__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.simple-header__back-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #E8D4C4,
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 로고 버튼 */
+.simple-header__logo {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.simple-header__logo:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.simple-header__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* 메뉴 버튼 */
+.simple-header__menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.simple-header__menu-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.simple-header__menu-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #E8D4C4,
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.simple-header__placeholder {
+  width: 48px;
+  height: 48px;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+  .simple-header {
+    padding: 16px 20px;
+  }
+
+  .simple-header__back-btn,
+  .simple-header__menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .simple-header__logo-img {
+    height: 44px;
+  }
+
+  .simple-header__placeholder {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .simple-header {
+    padding: 14px 16px;
+  }
+
+  .simple-header__back-btn,
+  .simple-header__menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .simple-header__logo-img {
+    height: 40px;
+  }
+
+  .simple-header__placeholder {
+    width: 40px;
+    height: 40px;
+  }
+}

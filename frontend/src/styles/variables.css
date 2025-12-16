@@ -1,0 +1,137 @@
+/* =============================================
+   🌳 아이토리 디자인 시스템 - CSS Variables
+   ============================================= */
+
+:root {
+  /* ==================== 색상 ==================== */
+  
+  /* 브랜드 컬러 */
+  --color-primary: #2E7D32;
+  --color-primary-light: #4CAF50;
+  --color-primary-dark: #1B5E20;
+  
+  /* 그라데이션 */
+  --gradient-sky: linear-gradient(180deg, #E8F4FD 0%, #D4ECFC 100%);
+  --gradient-sand: linear-gradient(180deg, #FFE082 0%, #FFF59D 100%);
+  --gradient-mint: linear-gradient(to right, #5CE8D8, #4DD4C4);
+  --gradient-orange: linear-gradient(to right, #FFB366, #FF9F4D);
+  --gradient-pink: linear-gradient(135deg, #FFB3D9 0%, #FF8BBD 100%);
+  --gradient-blue: linear-gradient(135deg, #42A5F5 0%, #1E88E5 100%);
+  --gradient-pastel: linear-gradient(135deg, #E8F5E9 0%, #FFF9E6 100%);
+  
+  /* 책 프레임 색상 */
+  --book-blue: #42A5F5;
+  --book-blue-dark: #1E88E5;
+  --book-yellow: #FFB300;
+  --book-yellow-dark: #FF8F00;
+  --book-green: #4CAF50;
+  --book-green-dark: #388E3C;
+  --book-pink: #EC407A;
+  --book-pink-dark: #D81B60;
+  --book-purple: #AB47BC;
+  --book-purple-dark: #8E24AA;
+  --book-orange: #FF7043;
+  --book-orange-dark: #E64A19;
+  
+  /* 파스텔 배경 */
+  --pastel-pink: #FFB3D9;
+  --pastel-blue: #B3E0FF;
+  --pastel-yellow: #FFF4B3;
+  --pastel-mint: #B3F5E6;
+  --pastel-orange: #FFD4B3;
+  --pastel-purple: #E0CFFF;
+  
+  /* 중립 색상 */
+  --color-white: #FFFFFF;
+  --color-background: #F5F5F5;
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-border: #E0E0E0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* 상태 색상 */
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #FF5252;
+  --color-info: #2196F3;
+  
+  /* ==================== 사이즈 ==================== */
+  
+  /* 책 크기 */
+  --book-width-lg: 280px;
+  --book-height-lg: 360px;
+  --book-width-md: 210px;
+  --book-height-md: 270px;
+  --book-width-sm: 160px;
+  --book-height-sm: 200px;
+  
+  /* 책 테두리 */
+  --book-border-width: 10px;
+  --book-border-radius: 16px;
+  
+  /* 버튼 크기 */
+  --btn-height-lg: 56px;
+  --btn-height-md: 48px;
+  --btn-height-sm: 40px;
+  --btn-radius: 16px;
+  --btn-radius-pill: 28px;
+  
+  /* 카드 */
+  --card-radius: 20px;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+  
+  /* 아바타 */
+  --avatar-lg: 56px;
+  --avatar-md: 48px;
+  --avatar-sm: 40px;
+  
+  /* 간격 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* ==================== 타이포그래피 ==================== */
+  
+  --font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 
+                 'Pretendard', 'Malgun Gothic', sans-serif;
+  
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 36px;
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.8;
+  
+  /* ==================== 애니메이션 ==================== */
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* ==================== Z-Index ==================== */
+  
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+  --z-notification: 500;
+}

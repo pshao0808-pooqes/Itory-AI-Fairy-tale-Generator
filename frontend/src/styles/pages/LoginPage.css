@@ -1,0 +1,613 @@
+/* ============================================
+   🌳 아이토리 - Login Page CSS
+   ============================================
+   
+   🎨 컬러 팔레트 (랜딩/회원가입과 동일):
+   - 배경: #F8F4ED (크림), #FFF9F0 (따뜻한 화이트)
+   - 주황: #F5A623, #FF8C42 (CTA)
+   - 베이지: #E8D4C4 (따뜻한 톤)
+   - 텍스트: #3D3425 (진한 갈색), #5D4E37 (중간), #8B7D6B (연한)
+   
+   ============================================ */
+
+/* ============================================
+   🌈 베이스 & 배경
+   ============================================ */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식 (정적)
+   ============================================ */
+.login-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.login-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.85;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.login-page__cloud::before,
+.login-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 구름 1 - 왼쪽 상단 */
+.login-page__cloud--1 {
+  width: 120px;
+  height: 50px;
+  top: 10%;
+  left: 5%;
+}
+
+.login-page__cloud--1::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 20px;
+}
+
+.login-page__cloud--1::after {
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 55px;
+}
+
+/* 구름 2 - 오른쪽 상단 */
+.login-page__cloud--2 {
+  width: 140px;
+  height: 50px;
+  top: 8%;
+  right: 8%;
+}
+
+.login-page__cloud--2::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 25px;
+}
+
+.login-page__cloud--2::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 65px;
+}
+
+/* 구름 3 - 왼쪽 하단 */
+.login-page__cloud--3 {
+  width: 100px;
+  height: 40px;
+  bottom: 15%;
+  left: 3%;
+}
+
+.login-page__cloud--3::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 15px;
+}
+
+.login-page__cloud--3::after {
+  width: 35px;
+  height: 35px;
+  top: -15px;
+  left: 45px;
+}
+
+/* 구름 4 - 오른쪽 하단 */
+.login-page__cloud--4 {
+  width: 110px;
+  height: 42px;
+  bottom: 20%;
+  right: 5%;
+}
+
+.login-page__cloud--4::before {
+  width: 52px;
+  height: 52px;
+  top: -26px;
+  left: 18px;
+}
+
+.login-page__cloud--4::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 50px;
+}
+
+/* ============================================
+   📦 컨테이너
+   ============================================ */
+.login-page__container {
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.login-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.login-page__back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.login-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-page__back-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #E8D4C4,
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-page__logo {
+  display: flex;
+  align-items: center;
+}
+
+.login-page__logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
+.login-page__signup-link {
+  background: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5D4E37;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.login-page__signup-link:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   👋 환영 메시지
+   ============================================ */
+.login-page__welcome {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-page__title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.login-page__subtitle {
+  font-size: 16px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* ============================================
+   📋 폼 카드
+   ============================================ */
+.login-page__form-card {
+  background: white;
+  border-radius: 32px;
+  padding: 40px 36px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   📝 폼 필드
+   ============================================ */
+.login-page__field {
+  margin-bottom: 20px;
+}
+
+.login-page__label {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5D4E37;
+  margin-bottom: 8px;
+}
+
+.login-page__input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 2px solid #E8E0D4;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3D3425;
+  background: #FAFAFA;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.login-page__input::placeholder {
+  color: #B8A99A;
+}
+
+.login-page__input:focus {
+  outline: none;
+  border-color: #F5A623;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.1);
+}
+
+.login-page__input.error {
+  border-color: #E57373;
+  background: #FFF8F8;
+}
+
+.login-page__error {
+  color: #E57373;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ============================================
+   🚀 제출 버튼
+   ============================================ */
+.login-page__submit-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #FF9F4D 0%, #F5A623 100%);
+  border: none;
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #D4880F,
+    0 8px 24px rgba(245, 166, 35, 0.35);
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page__submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 50px 50px 0 0;
+}
+
+.login-page__submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow:
+    0 9px 0 #D4880F,
+    0 12px 32px rgba(245, 166, 35, 0.45);
+}
+
+.login-page__submit-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow:
+    0 3px 0 #D4880F,
+    0 5px 16px rgba(245, 166, 35, 0.35);
+}
+
+.login-page__submit-btn:disabled {
+  background: #D4C4B4;
+  box-shadow:
+    0 4px 0 #B8A99A,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  cursor: not-allowed;
+}
+
+/* ============================================
+   🔗 링크
+   ============================================ */
+.login-page__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-page__link {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #8B7D6B;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.login-page__link:hover {
+  color: #5D4E37;
+}
+
+.login-page__link--bold {
+  font-weight: 700;
+  color: #F5A623;
+}
+
+.login-page__link--bold:hover {
+  color: #D4880F;
+  text-decoration: underline;
+}
+
+/* ============================================
+   🔗 소셜 로그인
+   ============================================ */
+.login-page__social {
+  margin-top: 32px;
+}
+
+.login-page__social-divider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.login-page__social-divider::before,
+.login-page__social-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #E8E0D4;
+}
+
+.login-page__social-divider span {
+  padding: 0 16px;
+  font-size: 14px;
+  color: #B8A99A;
+  font-weight: 600;
+}
+
+.login-page__social-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.login-page__social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 140px;
+}
+
+.login-page__social-btn--google {
+  background: white;
+  border: 2px solid #E8E0D4;
+  color: #5D4E37;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.login-page__social-btn--google:hover {
+  border-color: #D4C4B4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.login-page__social-btn--kakao {
+  background: #FEE500;
+  border: none;
+  color: #3D1D1D;
+  box-shadow:
+    0 3px 0 #D4C400,
+    0 4px 12px rgba(254, 229, 0, 0.3);
+}
+
+.login-page__social-btn--kakao:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 5px 0 #D4C400,
+    0 6px 16px rgba(254, 229, 0, 0.4);
+}
+
+.login-page__social-btn--naver {
+  background: #03C75A;
+  border: none;
+  color: white;
+  box-shadow:
+    0 3px 0 #02A04A,
+    0 4px 12px rgba(3, 199, 90, 0.3);
+}
+
+.login-page__social-btn--naver:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 5px 0 #02A04A,
+    0 6px 16px rgba(3, 199, 90, 0.4);
+}
+
+.login-page__naver-icon {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 24px 16px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .login-page__container {
+    max-width: 100%;
+  }
+
+  .login-page__header {
+    margin-bottom: 24px;
+  }
+
+  .login-page__back-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .login-page__logo-img {
+    height: 48px;
+  }
+
+  .login-page__signup-link {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .login-page__welcome {
+    margin-bottom: 24px;
+  }
+
+  .login-page__title {
+    font-size: 24px;
+  }
+
+  .login-page__subtitle {
+    font-size: 14px;
+  }
+
+  .login-page__form-card {
+    padding: 32px 24px;
+    border-radius: 28px;
+  }
+
+  .login-page__input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  .login-page__submit-btn {
+    padding: 16px;
+    font-size: 17px;
+  }
+
+  .login-page__social-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .login-page__social-btn {
+    max-width: 100%;
+    padding: 14px;
+  }
+
+  /* 모바일에서 일부 구름 숨기기 */
+  .login-page__cloud--3,
+  .login-page__cloud--4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page__back-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .login-page__logo-img {
+    height: 44px;
+  }
+
+  .login-page__signup-link {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .login-page__form-card {
+    padding: 28px 20px;
+  }
+
+  .login-page__title {
+    font-size: 22px;
+  }
+
+  .login-page__links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+}

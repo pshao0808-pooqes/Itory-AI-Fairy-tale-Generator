@@ -1,0 +1,35 @@
+# ==================================================================================
+# heungbu.yaml - 흥부 캐릭터 프로필
+# ==================================================================================
+
+name: "Heungbu"
+name_kr: "흥부"
+role: "Kind Brother, Protagonist"
+
+appearance:
+  age: "40s male"
+  body: "very skinny"
+  face: "kind but tired face"
+
+clothes:
+  description: "Ragged white/beige hemp Hanbok with patches, cloth headband"
+  colors:
+    - "white"
+    - "beige"
+  accessories:
+    - "cloth headband"
+
+personality:
+  - "kind"
+  - "hardworking"
+  - "selfless"
+  - "patient"
+
+# LLM 프롬프트용 전체 프로필 텍스트
+profile_prompt: |
+  Character: HEUNGBU (Kind Brother, Protagonist)
+  - Appearance: 40s male, very skinny, kind but tired face.
+  - Clothes: Ragged white/beige hemp Hanbok with patches, cloth headband.
+
+# 레퍼런스 이미지 파일명
+ref_image_filename: "character_heungbu_ref.png"

@@ -1,0 +1,1121 @@
+/* ============================================
+   🔐 아이토리 - 보호자 계정 페이지 CSS (크림톤/클레이)
+   ============================================ */
+
+.parent-account-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.parent-account-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.parent-account-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.85;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.parent-account-page__cloud::before,
+.parent-account-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.parent-account-page__cloud--1 {
+  width: 140px;
+  height: 55px;
+  top: 8%;
+  left: 5%;
+}
+
+.parent-account-page__cloud--1::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 24px;
+}
+
+.parent-account-page__cloud--1::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 60px;
+}
+
+.parent-account-page__cloud--2 {
+  width: 160px;
+  height: 60px;
+  top: 12%;
+  right: 8%;
+}
+
+.parent-account-page__cloud--2::before {
+  width: 72px;
+  height: 72px;
+  top: -36px;
+  left: 30px;
+}
+
+.parent-account-page__cloud--2::after {
+  width: 55px;
+  height: 55px;
+  top: -26px;
+  left: 75px;
+}
+
+.parent-account-page__cloud--3 {
+  width: 110px;
+  height: 42px;
+  top: 22%;
+  left: 12%;
+}
+
+.parent-account-page__cloud--3::before {
+  width: 48px;
+  height: 48px;
+  top: -24px;
+  left: 18px;
+}
+
+.parent-account-page__cloud--3::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 46px;
+}
+
+/* ============================================
+   🏷️ 헤더
+   ============================================ */
+.parent-account-page__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 0 0 32px 32px;
+  box-shadow:
+    0 6px 0 #A5D6A7,
+    0 12px 32px rgba(76, 175, 80, 0.15);
+}
+
+.parent-account-page__back-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #C8E6C9;
+  transition: all 0.2s ease;
+  color: #4CAF50;
+}
+
+.parent-account-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #C8E6C9;
+}
+
+.parent-account-page__back-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 #C8E6C9;
+}
+
+.parent-account-page__header-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #2E7D32;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.parent-account-page__content {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
+  padding-bottom: 160px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   📐 2열 그리드 레이아웃
+   ============================================ */
+.parent-account-page__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.parent-account-page__grid-left,
+.parent-account-page__grid-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================
+   👨‍👩‍👧 프로필 카드
+   ============================================ */
+.parent-account-page__profile-card {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 24px;
+  padding: 24px;
+  border: 3px solid #81C784;
+  box-shadow:
+    0 5px 0 #66BB6A,
+    0 10px 24px rgba(129, 199, 132, 0.25);
+}
+
+.parent-account-page__profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.parent-account-page__avatar {
+  width: 72px;
+  height: 72px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  box-shadow: 0 3px 0 #A5D6A7;
+}
+
+.parent-account-page__profile-info {
+  flex: 1;
+}
+
+.parent-account-page__name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2E7D32;
+  margin-bottom: 4px;
+}
+
+.parent-account-page__email {
+  font-size: 14px;
+  color: #558B2F;
+}
+
+.parent-account-page__profile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.parent-account-page__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: white;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4CAF50;
+  box-shadow: 0 2px 0 #A5D6A7;
+}
+
+.parent-account-page__kids-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2E7D32;
+}
+
+/* ============================================
+   📋 섹션
+   ============================================ */
+.parent-account-page__section {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow:
+    0 5px 0 #E8E0D4,
+    0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.parent-account-page__section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.parent-account-page__section-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parent-account-page__section-icon--green {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  color: #4CAF50;
+}
+
+.parent-account-page__section-icon--orange {
+  background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+  color: #FF9800;
+}
+
+.parent-account-page__section-desc {
+  font-size: 13px;
+  color: #8B7D6B;
+  margin-bottom: 16px;
+  padding-left: 42px;
+}
+
+/* ============================================
+   📋 메뉴 아이템
+   ============================================ */
+.parent-account-page__menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px;
+  background: #FFF9F0;
+  border: 2px solid #F5F0E8;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3D3425;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.parent-account-page__menu-item:last-child {
+  margin-bottom: 0;
+}
+
+.parent-account-page__menu-item:hover {
+  background: #FFF8E1;
+  border-color: #FFE082;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.parent-account-page__menu-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.parent-account-page__menu-icon--green {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  color: #4CAF50;
+  box-shadow: 0 2px 0 #A5D6A7;
+}
+
+.parent-account-page__menu-icon--orange {
+  background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+  color: #FF9800;
+  box-shadow: 0 2px 0 #FFB74D;
+}
+
+.parent-account-page__menu-icon--yellow {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  color: #F5A623;
+  box-shadow: 0 2px 0 #E8D4A0;
+}
+
+.parent-account-page__menu-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.parent-account-page__menu-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.parent-account-page__menu-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8B7D6B;
+}
+
+/* ============================================
+   🚨 회원 탈퇴 버튼
+   ============================================ */
+.parent-account-page__danger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: white;
+  border: 2px solid #FFCDD2;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #EF5350;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.parent-account-page__danger-btn:hover {
+  background: #FFEBEE;
+  border-color: #EF5350;
+}
+
+/* ============================================
+   💳 구독 섹션 (오른쪽)
+   ============================================ */
+.parent-account-page__subscription-section {
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 구독 헤더 */
+.parent-account-page__subscription-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #F5F0E8;
+  margin-bottom: 20px;
+}
+
+.parent-account-page__subscription-badge-wrap {
+  margin-bottom: 12px;
+}
+
+.parent-account-page__subscription-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.parent-account-page__subscription-badge--premium {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: white;
+  box-shadow: 0 3px 0 #E69500;
+}
+
+.parent-account-page__subscription-badge--basic {
+  background: #F5F0E8;
+  color: #8B7D6B;
+}
+
+.parent-account-page__subscription-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.parent-account-page__subscription-price {
+  font-size: 16px;
+  color: #8B7D6B;
+}
+
+.parent-account-page__subscription-price strong {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3D3425;
+}
+
+/* 사용량 카드 */
+.parent-account-page__usage-card {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #FFE082;
+}
+
+.parent-account-page__usage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.parent-account-page__usage-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.parent-account-page__usage-count {
+  font-size: 18px;
+  font-weight: 800;
+  color: #F5A623;
+}
+
+.parent-account-page__usage-bar {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.parent-account-page__usage-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.parent-account-page__usage-remaining {
+  font-size: 13px;
+  color: #8B7D6B;
+  text-align: center;
+}
+
+/* 플랜 혜택 */
+.parent-account-page__benefits {
+  margin-bottom: 20px;
+}
+
+.parent-account-page__benefits-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.parent-account-page__benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.parent-account-page__benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #5D5348;
+  border-bottom: 1px solid #F5F0E8;
+}
+
+.parent-account-page__benefit-item:last-child {
+  border-bottom: none;
+}
+
+/* 결제일 정보 */
+.parent-account-page__renewal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #F5F0E8;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #8B7D6B;
+}
+
+.parent-account-page__renewal-info strong {
+  color: #3D3425;
+  font-weight: 700;
+}
+
+/* 구독 관리 버튼들 */
+.parent-account-page__subscription-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.parent-account-page__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.parent-account-page__action-btn--primary {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: white;
+  box-shadow: 0 4px 0 #388E3C;
+}
+
+.parent-account-page__action-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #388E3C;
+}
+
+.parent-account-page__action-btn--primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #388E3C;
+}
+
+.parent-account-page__action-btn--secondary {
+  background: white;
+  color: #3D3425;
+  border: 2px solid #E8E0D4;
+  box-shadow: 0 3px 0 #E8E0D4;
+}
+
+.parent-account-page__action-btn--secondary:hover {
+  background: #FFF8E1;
+  border-color: #FFE082;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E8D4A0;
+}
+
+.parent-account-page__action-btn--secondary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 #E8E0D4;
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.parent-account-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.parent-account-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 70px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.parent-account-page__tree {
+  position: absolute;
+  bottom: 55px;
+}
+
+.parent-account-page__tree::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+}
+
+.parent-account-page__tree::after {
+  content: '';
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(180deg, #81C784 0%, #66BB6A 50%, #4CAF50 100%);
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.parent-account-page__tree--1 {
+  left: 5%;
+}
+
+.parent-account-page__tree--2 {
+  right: 8%;
+}
+
+.parent-account-page__tree--2::after {
+  width: 48px;
+  height: 48px;
+  bottom: 20px;
+}
+
+.parent-account-page__tree--2::before {
+  height: 24px;
+  width: 12px;
+}
+
+.parent-account-page__bush {
+  position: absolute;
+  bottom: 55px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.parent-account-page__bush--1 {
+  left: 12%;
+  width: 38px;
+  height: 28px;
+}
+
+.parent-account-page__bush--2 {
+  left: 45%;
+  width: 32px;
+  height: 24px;
+  bottom: 52px;
+}
+
+.parent-account-page__bush--3 {
+  right: 15%;
+  width: 36px;
+  height: 26px;
+}
+
+.parent-account-page__flower {
+  position: absolute;
+  bottom: 65px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.parent-account-page__flower--1 {
+  left: 20%;
+  background: #F48FB1;
+}
+
+.parent-account-page__flower--2 {
+  left: 55%;
+  background: #FFD54F;
+}
+
+.parent-account-page__flower--3 {
+  right: 25%;
+  background: #CE93D8;
+}
+
+/* ============================================
+   🔐 비밀번호 모달 스타일
+   ============================================ */
+.password-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(61, 52, 37, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.password-modal {
+  background: white;
+  border-radius: 28px;
+  padding: 40px 32px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  position: relative;
+  box-shadow:
+    0 8px 0 #E8E0D4,
+    0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: modalBounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalBounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.password-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #F5F0E8;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #8B7D6B;
+  box-shadow: 0 2px 0 #E8E0D4;
+}
+
+.password-modal__close:hover {
+  background: #FFEBEE;
+  color: #EF5350;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #FFCDD2;
+}
+
+.password-modal__close:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #E8E0D4;
+}
+
+.password-modal__icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border: 3px solid #81C784;
+  box-shadow: 0 4px 0 #66BB6A;
+}
+
+.password-modal__title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.password-modal__desc {
+  font-size: 15px;
+  color: #8B7D6B;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.password-modal__input {
+  width: 100%;
+  padding: 18px 20px;
+  border: 3px solid #E8E0D4;
+  border-radius: 16px;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  background: #FFF9F0;
+  color: #3D3425;
+  font-weight: 700;
+}
+
+.password-modal__input:focus {
+  border-color: #4CAF50;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+}
+
+.password-modal__input::placeholder {
+  letter-spacing: normal;
+  color: #C4B8A8;
+  font-weight: 500;
+}
+
+.password-modal__error {
+  color: #EF5350;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.password-modal__submit {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 0 #388E3C;
+}
+
+.password-modal__submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 #388E3C;
+}
+
+.password-modal__submit:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #388E3C;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+
+/* 태블릿 세로 및 모바일 - 1열 레이아웃 */
+@media (max-width: 768px) {
+  .parent-account-page__content {
+    padding: 20px 16px;
+    padding-bottom: 140px;
+  }
+
+  .parent-account-page__header {
+    padding: 16px 20px;
+  }
+
+  .parent-account-page__header-title {
+    font-size: 20px;
+  }
+
+  .parent-account-page__cloud--3 {
+    display: none;
+  }
+
+  /* 모바일에서 1열 레이아웃 - 구독 정보가 먼저 */
+  .parent-account-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .parent-account-page__grid-right {
+    order: -1;
+  }
+
+  .parent-account-page__profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .parent-account-page__profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .parent-account-page__profile-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .parent-account-page__avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+
+  .parent-account-page__section-desc {
+    padding-left: 0;
+  }
+
+  .parent-account-page__landscape {
+    height: 100px;
+  }
+
+  .parent-account-page__grass {
+    height: 55px;
+  }
+
+  .parent-account-page__tree,
+  .parent-account-page__bush,
+  .parent-account-page__flower {
+    bottom: 42px;
+  }
+
+  .parent-account-page__tree--2,
+  .parent-account-page__bush--2,
+  .parent-account-page__flower--2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-account-page__content {
+    padding: 16px 12px;
+    padding-bottom: 120px;
+  }
+
+  .parent-account-page__header {
+    padding: 14px 16px;
+  }
+
+  .parent-account-page__back-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .parent-account-page__header-title {
+    font-size: 18px;
+  }
+
+  .parent-account-page__cloud--1,
+  .parent-account-page__cloud--2 {
+    display: none;
+  }
+
+  .parent-account-page__profile-card {
+    padding: 20px;
+  }
+
+  .parent-account-page__avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+  }
+
+  .parent-account-page__name {
+    font-size: 20px;
+  }
+
+  .parent-account-page__section {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .parent-account-page__section-title {
+    font-size: 15px;
+  }
+
+  .parent-account-page__menu-item {
+    padding: 12px;
+  }
+
+  .parent-account-page__menu-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .parent-account-page__subscription-section {
+    padding: 20px;
+  }
+
+  .parent-account-page__subscription-title {
+    font-size: 20px;
+  }
+
+  .parent-account-page__subscription-price strong {
+    font-size: 24px;
+  }
+
+  .parent-account-page__action-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .password-modal {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .password-modal__icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .password-modal__title {
+    font-size: 22px;
+  }
+
+  .password-modal__input {
+    padding: 16px 18px;
+    font-size: 18px;
+  }
+
+  .password-modal__submit {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .parent-account-page__landscape {
+    height: 80px;
+  }
+
+  .parent-account-page__grass {
+    height: 45px;
+  }
+
+  .parent-account-page__tree {
+    display: none;
+  }
+
+  .parent-account-page__bush {
+    bottom: 35px;
+  }
+
+  .parent-account-page__flower {
+    bottom: 40px;
+  }
+}

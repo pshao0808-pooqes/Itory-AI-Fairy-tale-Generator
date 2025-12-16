@@ -1,0 +1,877 @@
+/* ============================================
+   🌳 아이토리 - Profile Select Page CSS
+   ============================================
+   
+   🎨 컬러 팔레트:
+   - 배경: #F8F4ED (크림), #FFF9F0 (따뜻한 화이트)
+   - 잔디: #8BC34A, #7CB342, #689F38
+   - 나무: #A5D651, #8BC34A (잎), #8D6E63 (줄기)
+   - 집: #FFCC80, #FF8A65 (지붕), #FFF8E1 (벽)
+   
+   ============================================ */
+
+/* ============================================
+   🌈 베이스 & 배경
+   ============================================ */
+.profile-select-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  padding: 24px 40px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식 (정적)
+   ============================================ */
+.profile-select-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.profile-select-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.9;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.profile-select-page__cloud::before,
+.profile-select-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 구름 1 */
+.profile-select-page__cloud--1 {
+  width: 140px;
+  height: 55px;
+  top: 6%;
+  left: 8%;
+}
+
+.profile-select-page__cloud--1::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 25px;
+}
+
+.profile-select-page__cloud--1::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 65px;
+}
+
+/* 구름 2 */
+.profile-select-page__cloud--2 {
+  width: 160px;
+  height: 58px;
+  top: 4%;
+  right: 10%;
+}
+
+.profile-select-page__cloud--2::before {
+  width: 72px;
+  height: 72px;
+  top: -36px;
+  left: 30px;
+}
+
+.profile-select-page__cloud--2::after {
+  width: 55px;
+  height: 55px;
+  top: -25px;
+  left: 75px;
+}
+
+/* 구름 3 */
+.profile-select-page__cloud--3 {
+  width: 120px;
+  height: 45px;
+  top: 18%;
+  left: 25%;
+}
+
+.profile-select-page__cloud--3::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 20px;
+}
+
+.profile-select-page__cloud--3::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 52px;
+}
+
+/* 구름 4 */
+.profile-select-page__cloud--4 {
+  width: 130px;
+  height: 48px;
+  top: 15%;
+  right: 20%;
+}
+
+.profile-select-page__cloud--4::before {
+  width: 58px;
+  height: 58px;
+  top: -29px;
+  left: 22px;
+}
+
+.profile-select-page__cloud--4::after {
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 58px;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.profile-select-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-select-page__logo {
+  display: flex;
+  align-items: center;
+}
+
+.profile-select-page__logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.profile-select-page__top-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* 보호자 버튼 */
+.profile-select-page__parent-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 100%);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #5D8A2D,
+    0 6px 16px rgba(124, 179, 66, 0.3);
+  transition: all 0.2s ease;
+}
+
+.profile-select-page__parent-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #5D8A2D,
+    0 8px 20px rgba(124, 179, 66, 0.4);
+}
+
+.profile-select-page__parent-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #5D8A2D,
+    0 4px 12px rgba(124, 179, 66, 0.3);
+}
+
+/* 로그아웃 버튼 */
+.profile-select-page__logout {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  color: #5D4E37;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.profile-select-page__logout:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-select-page__logout:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #E8D4C4,
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.profile-select-page__content {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-select-page__title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.profile-select-page__subtitle {
+  font-size: 18px;
+  color: #8B7D6B;
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+/* ============================================
+   👤 프로필 그리드 (확대됨)
+   ============================================ */
+.profile-select-page__grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  max-width: 900px;
+}
+
+/* 프로필 카드 (확대됨) */
+.profile-select-page__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 40px;
+  background: white;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 10px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.profile-select-page__profile:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 14px 0 #E8E0D4,
+    0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.profile-select-page__profile:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 3px 0 #E8E0D4,
+    0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 아바타 (확대됨) */
+.profile-select-page__avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-select-page__info {
+  text-align: center;
+}
+
+.profile-select-page__name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.profile-select-page__age {
+  font-size: 16px;
+  color: #8B7D6B;
+  font-weight: 600;
+}
+
+/* ============================================
+   ➕ 프로필 추가 버튼 (확대됨)
+   ============================================ */
+.profile-select-page__add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.profile-select-page__add:hover {
+  transform: translateY(-6px);
+}
+
+.profile-select-page__add-icon {
+  width: 140px;
+  height: 140px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 4px dashed #D4C4B4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B8A99A;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.profile-select-page__add:hover .profile-select-page__add-icon {
+  background: white;
+  border-color: #F5A623;
+  color: #F5A623;
+  box-shadow:
+    0 6px 0 rgba(245, 166, 35, 0.3),
+    0 8px 24px rgba(245, 166, 35, 0.15);
+}
+
+.profile-select-page__add-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #8B7D6B;
+  transition: color 0.2s ease;
+}
+
+.profile-select-page__add:hover .profile-select-page__add-text {
+  color: #F5A623;
+}
+
+/* ============================================
+   ⚙️ 프로필 관리 버튼
+   ============================================ */
+.profile-select-page__manage {
+  background: white;
+  border: none;
+  color: #5D4E37;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 16px 32px;
+  border-radius: 50px;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+  margin-bottom: 120px;
+}
+
+.profile-select-page__manage:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 8px 20px rgba(0, 0, 0, 0.08);
+  color: #F5A623;
+}
+
+.profile-select-page__manage:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 0 #E8D4C4,
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.profile-select-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 잔디 언덕 */
+.profile-select-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 100px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* 나무 기본 스타일 */
+.profile-select-page__tree {
+  position: absolute;
+  bottom: 70px;
+}
+
+.profile-select-page__tree-top {
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(180deg, #A5D651 0%, #8BC34A 50%, #7CB342 100%);
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  box-shadow: inset -8px -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-select-page__tree-trunk {
+  width: 16px;
+  height: 30px;
+  background: linear-gradient(90deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+  margin: -5px auto 0;
+}
+
+/* 나무 위치들 */
+.profile-select-page__tree--1 {
+  left: 5%;
+}
+
+.profile-select-page__tree--1 .profile-select-page__tree-top {
+  width: 70px;
+  height: 95px;
+}
+
+.profile-select-page__tree--1 .profile-select-page__tree-trunk {
+  width: 18px;
+  height: 35px;
+}
+
+.profile-select-page__tree--2 {
+  left: 15%;
+  bottom: 60px;
+}
+
+.profile-select-page__tree--2 .profile-select-page__tree-top {
+  width: 50px;
+  height: 65px;
+}
+
+.profile-select-page__tree--2 .profile-select-page__tree-trunk {
+  width: 12px;
+  height: 25px;
+}
+
+.profile-select-page__tree--3 {
+  right: 12%;
+}
+
+.profile-select-page__tree--3 .profile-select-page__tree-top {
+  width: 65px;
+  height: 88px;
+}
+
+.profile-select-page__tree--3 .profile-select-page__tree-trunk {
+  width: 16px;
+  height: 32px;
+}
+
+.profile-select-page__tree--4 {
+  right: 3%;
+  bottom: 55px;
+}
+
+.profile-select-page__tree--4 .profile-select-page__tree-top {
+  width: 45px;
+  height: 58px;
+}
+
+.profile-select-page__tree--4 .profile-select-page__tree-trunk {
+  width: 10px;
+  height: 22px;
+}
+
+/* 집 기본 스타일 */
+.profile-select-page__house {
+  position: absolute;
+  bottom: 75px;
+}
+
+.profile-select-page__house-roof {
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 40px solid #FF8A65;
+  position: relative;
+}
+
+.profile-select-page__house-roof::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -35px;
+  width: 70px;
+  height: 32px;
+  background: #FFAB91;
+  border-radius: 0 0 4px 4px;
+}
+
+.profile-select-page__house-body {
+  width: 70px;
+  height: 55px;
+  background: linear-gradient(180deg, #FFF8E1 0%, #FFECB3 100%);
+  margin: 0 auto;
+  margin-top: -1px;
+  position: relative;
+  border-radius: 0 0 4px 4px;
+  box-shadow: inset -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-select-page__house-window {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #81D4FA 0%, #4FC3F7 100%);
+  border: 3px solid #8D6E63;
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.profile-select-page__house-door {
+  width: 20px;
+  height: 32px;
+  background: linear-gradient(180deg, #A1887F 0%, #8D6E63 100%);
+  border-radius: 3px 3px 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+}
+
+/* 집 위치들 */
+.profile-select-page__house--1 {
+  left: 28%;
+}
+
+.profile-select-page__house--2 {
+  right: 25%;
+  bottom: 70px;
+}
+
+.profile-select-page__house--2 .profile-select-page__house-roof {
+  border-left-width: 38px;
+  border-right-width: 38px;
+  border-bottom-width: 34px;
+}
+
+.profile-select-page__house--2 .profile-select-page__house-roof::after {
+  width: 58px;
+  height: 27px;
+  left: -29px;
+}
+
+.profile-select-page__house--2 .profile-select-page__house-body {
+  width: 58px;
+  height: 45px;
+}
+
+.profile-select-page__house--2 .profile-select-page__house-window {
+  width: 14px;
+  height: 14px;
+  top: 8px;
+  left: 10px;
+}
+
+.profile-select-page__house--2 .profile-select-page__house-door {
+  width: 16px;
+  height: 26px;
+  right: 10px;
+}
+
+/* 덤불 */
+.profile-select-page__bush {
+  position: absolute;
+  bottom: 75px;
+  width: 40px;
+  height: 28px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -4px -3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-select-page__bush--1 {
+  left: 22%;
+  width: 35px;
+  height: 24px;
+}
+
+.profile-select-page__bush--2 {
+  left: 42%;
+  width: 45px;
+  height: 30px;
+  bottom: 72px;
+}
+
+.profile-select-page__bush--3 {
+  right: 40%;
+  width: 38px;
+  height: 26px;
+}
+
+.profile-select-page__bush--4 {
+  right: 8%;
+  width: 32px;
+  height: 22px;
+  bottom: 70px;
+}
+
+.profile-select-page__bush--5 {
+  left: 48%;
+  width: 28px;
+  height: 20px;
+  bottom: 68px;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 768px) {
+  .profile-select-page {
+    padding: 20px 20px 0;
+  }
+
+  .profile-select-page__header {
+    margin-bottom: 32px;
+  }
+
+  .profile-select-page__logo-img {
+    height: 48px;
+  }
+
+  .profile-select-page__parent-btn span,
+  .profile-select-page__logout span {
+    display: none;
+  }
+
+  .profile-select-page__parent-btn,
+  .profile-select-page__logout {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .profile-select-page__title {
+    font-size: 28px;
+  }
+
+  .profile-select-page__subtitle {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .profile-select-page__grid {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .profile-select-page__profile {
+    padding: 24px 32px;
+    border-radius: 28px;
+    min-width: 160px;
+  }
+
+  .profile-select-page__avatar {
+    width: 110px;
+    height: 110px;
+    font-size: 56px;
+    border-radius: 24px;
+    margin-bottom: 16px;
+  }
+
+  .profile-select-page__name {
+    font-size: 18px;
+  }
+
+  .profile-select-page__age {
+    font-size: 14px;
+  }
+
+  .profile-select-page__add {
+    padding: 24px 32px;
+    min-width: 160px;
+  }
+
+  .profile-select-page__add-icon {
+    width: 110px;
+    height: 110px;
+    border-radius: 24px;
+    margin-bottom: 16px;
+  }
+
+  .profile-select-page__add-text {
+    font-size: 16px;
+  }
+
+  .profile-select-page__manage {
+    margin-bottom: 140px;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .profile-select-page__landscape {
+    height: 140px;
+  }
+
+  .profile-select-page__grass {
+    height: 80px;
+  }
+
+  /* 모바일에서 일부 장식 숨기기 */
+  .profile-select-page__tree--2,
+  .profile-select-page__tree--4,
+  .profile-select-page__house--2,
+  .profile-select-page__bush--3,
+  .profile-select-page__bush--5,
+  .profile-select-page__cloud--3,
+  .profile-select-page__cloud--4 {
+    display: none;
+  }
+
+  .profile-select-page__tree {
+    bottom: 55px;
+  }
+
+  .profile-select-page__house {
+    bottom: 60px;
+  }
+
+  .profile-select-page__bush {
+    bottom: 58px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-select-page__header {
+    margin-bottom: 24px;
+  }
+
+  .profile-select-page__logo-img {
+    height: 44px;
+  }
+
+  .profile-select-page__top-buttons {
+    gap: 8px;
+  }
+
+  .profile-select-page__parent-btn,
+  .profile-select-page__logout {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .profile-select-page__title {
+    font-size: 24px;
+  }
+
+  .profile-select-page__subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .profile-select-page__grid {
+    gap: 16px;
+  }
+
+  .profile-select-page__profile {
+    padding: 20px 24px;
+    min-width: 140px;
+  }
+
+  .profile-select-page__avatar {
+    width: 90px;
+    height: 90px;
+    font-size: 46px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .profile-select-page__name {
+    font-size: 16px;
+  }
+
+  .profile-select-page__age {
+    font-size: 13px;
+  }
+
+  .profile-select-page__add {
+    padding: 20px 24px;
+    min-width: 140px;
+  }
+
+  .profile-select-page__add-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .profile-select-page__manage {
+    padding: 12px 24px;
+    font-size: 14px;
+    margin-bottom: 120px;
+  }
+
+  .profile-select-page__landscape {
+    height: 120px;
+  }
+
+  .profile-select-page__grass {
+    height: 70px;
+  }
+}

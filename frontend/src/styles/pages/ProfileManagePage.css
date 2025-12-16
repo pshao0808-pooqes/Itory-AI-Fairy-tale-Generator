@@ -1,0 +1,559 @@
+/* ============================================
+   👥 아이토리 - 프로필 관리 페이지 CSS
+   크림톤/클레이 스타일
+   ============================================ */
+
+.profile-manage-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름
+   ============================================ */
+.profile-manage-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.profile-manage-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.8;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.profile-manage-page__cloud::before,
+.profile-manage-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.profile-manage-page__cloud--1 {
+  width: 120px;
+  height: 48px;
+  top: 10%;
+  left: 5%;
+}
+
+.profile-manage-page__cloud--1::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 20px;
+}
+
+.profile-manage-page__cloud--1::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 52px;
+}
+
+.profile-manage-page__cloud--2 {
+  width: 140px;
+  height: 52px;
+  top: 8%;
+  right: 10%;
+}
+
+.profile-manage-page__cloud--2::before {
+  width: 62px;
+  height: 62px;
+  top: -30px;
+  left: 25px;
+}
+
+.profile-manage-page__cloud--2::after {
+  width: 48px;
+  height: 48px;
+  top: -22px;
+  left: 65px;
+}
+
+.profile-manage-page__cloud--3 {
+  width: 100px;
+  height: 38px;
+  bottom: 30%;
+  left: 3%;
+}
+
+.profile-manage-page__cloud--3::before {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 15px;
+}
+
+.profile-manage-page__cloud--3::after {
+  width: 34px;
+  height: 34px;
+  top: -14px;
+  left: 42px;
+}
+
+.profile-manage-page__cloud--4 {
+  width: 110px;
+  height: 42px;
+  bottom: 25%;
+  right: 5%;
+}
+
+.profile-manage-page__cloud--4::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 18px;
+}
+
+.profile-manage-page__cloud--4::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 48px;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.profile-manage-page__header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-manage-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-manage-page__back-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 20px rgba(93, 78, 55, 0.15);
+  transition: all 0.2s ease;
+  color: #5D4E37;
+}
+
+.profile-manage-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 10px 28px rgba(93, 78, 55, 0.2);
+}
+
+.profile-manage-page__back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #E8D4C4;
+}
+
+.profile-manage-page__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.profile-manage-page__main {
+  padding: 20px 40px 60px;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* 인트로 */
+.profile-manage-page__intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-manage-page__intro-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #2196F3 0%, #42A5F5 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: white;
+  box-shadow:
+    0 4px 0 #1976D2,
+    0 8px 24px rgba(33, 150, 243, 0.3);
+}
+
+.profile-manage-page__intro-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.profile-manage-page__intro-desc {
+  font-size: 16px;
+  color: #6B5D4D;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.profile-manage-page__count-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #F5A623;
+  border: 2px solid #FFE082;
+}
+
+/* ============================================
+   📋 프로필 목록
+   ============================================ */
+.profile-manage-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.profile-manage-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-manage-page__item {
+  background: white;
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+  border: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.profile-manage-page__item:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+.profile-manage-page__item.active {
+  border-color: #4CAF50;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F8E9 100%);
+}
+
+.profile-manage-page__item-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.profile-manage-page__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border: 3px solid #FFE082;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 3px 0 #E8C97C;
+}
+
+.profile-manage-page__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-manage-page__avatar span {
+  font-size: 32px;
+}
+
+.profile-manage-page__info {
+  flex: 1;
+}
+
+.profile-manage-page__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.profile-manage-page__age {
+  font-size: 14px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+.profile-manage-page__current-badge {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 0 #388E3C;
+}
+
+/* 액션 버튼 */
+.profile-manage-page__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-manage-page__action-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-manage-page__action-btn--edit {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  color: #F5A623;
+  box-shadow: 0 3px 0 #E8C97C;
+}
+
+.profile-manage-page__action-btn--edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #E8C97C;
+}
+
+.profile-manage-page__action-btn--delete {
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+  color: #E53935;
+  box-shadow: 0 3px 0 #EF9A9A;
+}
+
+.profile-manage-page__action-btn--delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #EF9A9A;
+}
+
+.profile-manage-page__action-btn:active {
+  transform: translateY(1px);
+}
+
+/* 추가 버튼 */
+.profile-manage-page__add-btn {
+  background: white;
+  border: 3px dashed #D8D0C4;
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-manage-page__add-btn:hover {
+  border-color: #4CAF50;
+  background: #F1F8E9;
+}
+
+.profile-manage-page__add-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border: 3px solid #A5D6A7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4CAF50;
+}
+
+.profile-manage-page__add-btn span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #5D4E37;
+}
+
+/* 팁 */
+.profile-manage-page__tip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border-left: 4px solid #2196F3;
+}
+
+.profile-manage-page__tip-icon {
+  font-size: 24px;
+}
+
+.profile-manage-page__tip p {
+  font-size: 14px;
+  color: #1565C0;
+  font-weight: 500;
+}
+
+/* ============================================
+   📎 푸터
+   ============================================ */
+.profile-manage-page__footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: #8B7D6B;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ============================================
+   📱 반응형
+   ============================================ */
+@media (max-width: 768px) {
+  .profile-manage-page__header {
+    padding: 16px 20px;
+  }
+
+  .profile-manage-page__main {
+    padding: 16px 20px 50px;
+  }
+
+  .profile-manage-page__intro-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-manage-page__intro-title {
+    font-size: 26px;
+  }
+
+  .profile-manage-page__item {
+    padding: 16px 20px;
+  }
+
+  .profile-manage-page__avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-manage-page__avatar span {
+    font-size: 28px;
+  }
+
+  .profile-manage-page__name {
+    font-size: 16px;
+  }
+
+  .profile-manage-page__action-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-manage-page__add-btn {
+    padding: 24px 20px;
+  }
+
+  .profile-manage-page__add-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .profile-manage-page__cloud--3,
+  .profile-manage-page__cloud--4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-manage-page__header {
+    padding: 14px 16px;
+  }
+
+  .profile-manage-page__header-left {
+    gap: 10px;
+  }
+
+  .profile-manage-page__logo-img {
+    height: 40px;
+  }
+
+  .profile-manage-page__back-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .profile-manage-page__intro-title {
+    font-size: 22px;
+  }
+
+  .profile-manage-page__item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .profile-manage-page__item-main {
+    flex: none;
+  }
+
+  .profile-manage-page__actions {
+    justify-content: flex-end;
+  }
+
+  .profile-manage-page__current-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .profile-manage-page__add-btn {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

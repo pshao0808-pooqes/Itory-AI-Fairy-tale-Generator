@@ -1,0 +1,1171 @@
+/* ============================================
+   🌳 아이토리 - 동화 편집 페이지 CSS
+   전체 화면 활용 레이아웃 (태블릿 최적화)
+   ============================================ */
+
+.edit-story-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FFF9F0 0%, #F5F0E8 100%);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.edit-story-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.edit-story-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.85;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.edit-story-page__cloud::before,
+.edit-story-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.edit-story-page__cloud--1 {
+  width: 140px;
+  height: 55px;
+  top: 8%;
+  left: 5%;
+}
+
+.edit-story-page__cloud--1::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 24px;
+}
+
+.edit-story-page__cloud--1::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 60px;
+}
+
+.edit-story-page__cloud--2 {
+  width: 160px;
+  height: 60px;
+  top: 12%;
+  right: 8%;
+}
+
+.edit-story-page__cloud--2::before {
+  width: 72px;
+  height: 72px;
+  top: -36px;
+  left: 30px;
+}
+
+.edit-story-page__cloud--2::after {
+  width: 55px;
+  height: 55px;
+  top: -26px;
+  left: 75px;
+}
+
+.edit-story-page__cloud--3 {
+  width: 110px;
+  height: 42px;
+  top: 25%;
+  left: 12%;
+}
+
+.edit-story-page__cloud--3::before {
+  width: 48px;
+  height: 48px;
+  top: -24px;
+  left: 18px;
+}
+
+.edit-story-page__cloud--3::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 46px;
+}
+
+.edit-story-page__cloud--4 {
+  width: 120px;
+  height: 46px;
+  top: 20%;
+  right: 15%;
+}
+
+.edit-story-page__cloud--4::before {
+  width: 52px;
+  height: 52px;
+  top: -26px;
+  left: 20px;
+}
+
+.edit-story-page__cloud--4::after {
+  width: 40px;
+  height: 40px;
+  top: -18px;
+  left: 50px;
+}
+
+/* ============================================
+   📦 메인 콘텐츠 - 전체 화면
+   ============================================ */
+.edit-story-page__main--fullscreen {
+  position: relative;
+  z-index: 1;
+  padding: 16px 24px;
+  padding-bottom: 140px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+}
+
+/* ============================================
+   📊 미니 진행 표시 (상단)
+   ============================================ */
+.edit-story-page__mini-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px 24px;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-story-page__mini-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edit-story-page__mini-step:not(:last-child)::after {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: #E0D8CC;
+  margin-left: 6px;
+}
+
+.edit-story-page__mini-step.completed::after {
+  background: #8BC34A;
+}
+
+.edit-story-page__mini-step.active::after {
+  background: #F5A623;
+}
+
+.edit-story-page__mini-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #E8E0D4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.edit-story-page__mini-step.active .edit-story-page__mini-dot {
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  box-shadow: 0 3px 10px rgba(245, 166, 35, 0.4);
+}
+
+.edit-story-page__mini-step.completed .edit-story-page__mini-dot {
+  background: linear-gradient(135deg, #8BC34A 0%, #7CB342 100%);
+  color: white;
+}
+
+.edit-story-page__mini-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #A89F91;
+}
+
+.edit-story-page__mini-step.active .edit-story-page__mini-label {
+  color: #3D3425;
+  font-weight: 700;
+}
+
+.edit-story-page__mini-step.completed .edit-story-page__mini-label {
+  color: #7CB342;
+}
+
+/* ============================================
+   🎬 영상 영역 - 전체 폭
+   ============================================ */
+.edit-story-page__fullscreen-video {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.edit-story-page__video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #FFF5E1 0%, #FFE4C4 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 0 rgba(0, 0, 0, 0.08),
+    0 16px 48px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.edit-story-page__video-playing,
+.edit-story-page__video-complete,
+.edit-story-page__video-ready {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.edit-story-page__video-emoji {
+  font-size: 120px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.edit-story-page__video-status {
+  font-size: 20px;
+  color: #5D4E37;
+  font-weight: 600;
+}
+
+.edit-story-page__video-ready-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.edit-story-page__complete-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.edit-story-page__complete-subtitle {
+  font-size: 18px;
+  color: #5D4E37;
+  font-weight: 500;
+}
+
+/* 로딩 */
+.edit-story-page__loading {
+  text-align: center;
+}
+
+.edit-story-page__loading-emoji {
+  font-size: 100px;
+  margin-bottom: 24px;
+  animation: pulse 1.5s infinite;
+}
+
+.edit-story-page__loading-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.edit-story-page__loading-subtitle {
+  font-size: 16px;
+  color: #8B7D6B;
+  margin-bottom: 28px;
+}
+
+.edit-story-page__loading-bar {
+  width: 320px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.edit-story-page__loading-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623 0%, #FF8C42 100%);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.edit-story-page__loading-percent {
+  font-size: 20px;
+  font-weight: 700;
+  color: #F5A623;
+}
+
+/* ============================================
+   📖 줄거리 텍스트
+   ============================================ */
+.edit-story-page__story-text {
+  width: 100%;
+  padding: 20px 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.edit-story-page__story-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #F5A623;
+  margin-bottom: 8px;
+}
+
+.edit-story-page__story-text p {
+  font-size: 16px;
+  color: #5D4E37;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   🔘 하단 버튼
+   ============================================ */
+.edit-story-page__bottom-action {
+  padding: 16px 0;
+  width: 100%;
+}
+
+.edit-story-page__big-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 22px 40px;
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  border: none;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #D4820A,
+    0 12px 32px rgba(245, 166, 35, 0.4);
+  transition: all 0.2s ease;
+}
+
+.edit-story-page__big-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 0 #D4820A,
+    0 16px 40px rgba(245, 166, 35, 0.45);
+}
+
+.edit-story-page__big-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 3px 0 #D4820A,
+    0 8px 24px rgba(245, 166, 35, 0.4);
+}
+
+/* ============================================
+   💡 힌트
+   ============================================ */
+.edit-story-page__hint {
+  text-align: center;
+  padding: 16px;
+}
+
+.edit-story-page__hint p {
+  font-size: 15px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* ============================================
+   ❓ 질문 카드 (선택 화면)
+   ============================================ */
+.edit-story-page__question-card {
+  width: 100%;
+  margin-bottom: 32px;
+  padding: 32px 40px;
+  background: white;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.edit-story-page__stage-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #F5A623;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.edit-story-page__question-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3D3425;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================
+   🎯 선택지 영역
+   ============================================ */
+.edit-story-page__choice-area {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-story-page__choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.edit-story-page__choice-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  border: 3px solid transparent;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 12px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.edit-story-page__choice-card:hover {
+  transform: translateY(-8px);
+  border-color: #F5A623;
+  box-shadow:
+    0 14px 0 #E8E0D4,
+    0 20px 48px rgba(0, 0, 0, 0.12);
+}
+
+.edit-story-page__choice-card:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 3px 0 #E8E0D4,
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.edit-story-page__choice-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.edit-story-page__choice-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.edit-story-page__choice-desc {
+  font-size: 15px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* ============================================
+   ✏️ 직접 쓰기 버튼
+   ============================================ */
+.edit-story-page__custom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 32px;
+  background: white;
+  border: 2px dashed #8BC34A;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #7CB342;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0 auto;
+}
+
+.edit-story-page__custom-btn:hover {
+  background: #F5FFF0;
+  border-style: solid;
+}
+
+/* ============================================
+   ✏️ 직접 쓰기 모드
+   ============================================ */
+.edit-story-page__custom-area {
+  width: 100%;
+  flex: 1;
+}
+
+.edit-story-page__custom-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow:
+    0 6px 0 #E8E0D4,
+    0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.edit-story-page__custom-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #7CB342;
+  margin-bottom: 20px;
+}
+
+.edit-story-page__custom-input {
+  width: 100%;
+  height: 160px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 2px solid #E8E0D4;
+  font-size: 17px;
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 20px;
+  background: #FAFAFA;
+}
+
+.edit-story-page__custom-input:focus {
+  outline: none;
+  border-color: #F5A623;
+  background: white;
+}
+
+.edit-story-page__custom-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.edit-story-page__custom-cancel {
+  flex: 1;
+  padding: 16px;
+  border-radius: 14px;
+  background: #F0EBE3;
+  border: none;
+  font-size: 17px;
+  font-weight: 700;
+  color: #8B7D6B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-story-page__custom-cancel:hover {
+  background: #E8E0D4;
+}
+
+.edit-story-page__custom-submit {
+  flex: 2;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #F5A623 0%, #FF8C42 100%);
+  border: none;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #D4820A;
+  transition: all 0.2s ease;
+}
+
+.edit-story-page__custom-submit:hover {
+  transform: translateY(-2px);
+}
+
+.edit-story-page__custom-submit:disabled {
+  background: #E8E0D4;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   🎞️ 애니메이션
+   ============================================ */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* 비디오 플레이어 감싸는 래퍼: 여백(padding)을 주어 HUD 공간 확보 */
+.edit-story-page__video-player-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* 핵심! 이 여백 덕분에 비디오가 작아지고 컨트롤러가 보입니다 */
+}
+
+/* 비디오 플레이어 본체 */
+.edit-story-page__video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* 비율 유지하며 다 보여주기 (잘림 방지) */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.edit-story-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.edit-story-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 70px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* 나무 */
+.edit-story-page__tree {
+  position: absolute;
+  bottom: 55px;
+}
+
+.edit-story-page__tree::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+}
+
+.edit-story-page__tree::after {
+  content: '';
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(180deg, #81C784 0%, #66BB6A 50%, #4CAF50 100%);
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.edit-story-page__tree--1 {
+  left: 5%;
+}
+
+.edit-story-page__tree--2 {
+  right: 8%;
+}
+
+.edit-story-page__tree--2::after {
+  width: 48px;
+  height: 48px;
+  bottom: 20px;
+}
+
+.edit-story-page__tree--2::before {
+  height: 24px;
+  width: 12px;
+}
+
+.edit-story-page__tree--3 {
+  left: 15%;
+}
+
+.edit-story-page__tree--3::after {
+  width: 42px;
+  height: 42px;
+  bottom: 18px;
+}
+
+.edit-story-page__tree--3::before {
+  height: 22px;
+  width: 10px;
+}
+
+/* 집 */
+.edit-story-page__house {
+  position: absolute;
+  bottom: 55px;
+  right: 20%;
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(180deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 4px;
+  box-shadow: inset -3px -3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.edit-story-page__house::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 31px solid transparent;
+  border-right: 31px solid transparent;
+  border-bottom: 28px solid #FF8A65;
+}
+
+.edit-story-page__house::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  background: #8D6E63;
+  border-radius: 2px 2px 0 0;
+}
+
+.edit-story-page__house-window {
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background: #81D4FA;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.edit-story-page__house-window--left {
+  left: 6px;
+}
+
+.edit-story-page__house-window--right {
+  right: 6px;
+}
+
+/* 덤불 */
+.edit-story-page__bush {
+  position: absolute;
+  bottom: 55px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-story-page__bush--1 {
+  left: 10%;
+  width: 38px;
+  height: 28px;
+}
+
+.edit-story-page__bush--2 {
+  left: 30%;
+  width: 32px;
+  height: 24px;
+  bottom: 52px;
+}
+
+.edit-story-page__bush--3 {
+  right: 30%;
+  width: 36px;
+  height: 26px;
+}
+
+.edit-story-page__bush--4 {
+  right: 5%;
+  width: 30px;
+  height: 22px;
+  bottom: 52px;
+}
+
+/* 꽃 */
+.edit-story-page__flower {
+  position: absolute;
+  bottom: 65px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.edit-story-page__flower--1 {
+  left: 25%;
+  background: #F48FB1;
+}
+
+.edit-story-page__flower--2 {
+  left: 40%;
+  background: #FFD54F;
+}
+
+.edit-story-page__flower--3 {
+  right: 35%;
+  background: #CE93D8;
+}
+
+.edit-story-page__flower--4 {
+  right: 15%;
+  background: #81D4FA;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 1024px) {
+  .edit-story-page__video-emoji {
+    font-size: 100px;
+  }
+
+  .edit-story-page__complete-title {
+    font-size: 30px;
+  }
+
+  .edit-story-page__question-text {
+    font-size: 24px;
+  }
+
+  .edit-story-page__choice-card {
+    padding: 32px 24px;
+  }
+
+  .edit-story-page__choice-icon {
+    font-size: 60px;
+  }
+
+  .edit-story-page__choice-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .edit-story-page__main--fullscreen {
+    padding: 12px 16px;
+    padding-bottom: 120px;
+  }
+
+  .edit-story-page__cloud--3,
+  .edit-story-page__cloud--4 {
+    display: none;
+  }
+
+  .edit-story-page__landscape {
+    height: 100px;
+  }
+
+  .edit-story-page__grass {
+    height: 55px;
+  }
+
+  .edit-story-page__tree,
+  .edit-story-page__bush,
+  .edit-story-page__flower,
+  .edit-story-page__house {
+    bottom: 42px;
+  }
+
+  .edit-story-page__tree--3,
+  .edit-story-page__bush--2,
+  .edit-story-page__bush--4,
+  .edit-story-page__flower--2,
+  .edit-story-page__flower--3 {
+    display: none;
+  }
+
+  .edit-story-page__mini-progress {
+    padding: 10px 16px;
+    gap: 4px;
+  }
+
+  .edit-story-page__mini-step:not(:last-child)::after {
+    width: 16px;
+  }
+
+  .edit-story-page__mini-dot {
+    width: 24px;
+    height: 24px;
+  }
+
+  .edit-story-page__mini-label {
+    font-size: 11px;
+  }
+
+  .edit-story-page__video-container {
+    border-radius: 20px;
+  }
+
+  .edit-story-page__video-emoji {
+    font-size: 80px;
+  }
+
+  .edit-story-page__loading-emoji {
+    font-size: 80px;
+  }
+
+  .edit-story-page__loading-title,
+  .edit-story-page__complete-title {
+    font-size: 24px;
+  }
+
+  .edit-story-page__video-ready-title {
+    font-size: 22px;
+  }
+
+  .edit-story-page__big-btn {
+    padding: 18px 32px;
+    font-size: 18px;
+    border-radius: 16px;
+  }
+
+  .edit-story-page__question-card {
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+
+  .edit-story-page__question-text {
+    font-size: 20px;
+  }
+
+  .edit-story-page__choice-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .edit-story-page__choice-card {
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .edit-story-page__choice-icon {
+    font-size: 50px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .edit-story-page__choice-title {
+    font-size: 18px;
+  }
+
+  .edit-story-page__choice-desc {
+    font-size: 14px;
+  }
+
+  .edit-story-page__story-text {
+    padding: 16px 20px;
+  }
+
+  .edit-story-page__story-text p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-story-page__main--fullscreen {
+    padding: 8px 12px;
+    padding-bottom: 100px;
+  }
+
+  .edit-story-page__cloud--1,
+  .edit-story-page__cloud--2 {
+    display: none;
+  }
+
+  .edit-story-page__landscape {
+    height: 80px;
+  }
+
+  .edit-story-page__grass {
+    height: 45px;
+  }
+
+  .edit-story-page__tree--1,
+  .edit-story-page__tree--2,
+  .edit-story-page__house,
+  .edit-story-page__flower {
+    display: none;
+  }
+
+  .edit-story-page__bush {
+    bottom: 35px;
+  }
+
+  .edit-story-page__bush--1 {
+    display: block;
+    left: 10%;
+  }
+
+  .edit-story-page__bush--3 {
+    display: block;
+    right: 10%;
+  }
+
+  .edit-story-page__mini-progress {
+    padding: 8px 12px;
+  }
+
+  .edit-story-page__mini-label {
+    display: none;
+  }
+
+  .edit-story-page__mini-step:not(:last-child)::after {
+    width: 12px;
+    margin-left: 4px;
+  }
+
+  .edit-story-page__video-emoji {
+    font-size: 64px;
+  }
+
+  .edit-story-page__loading-emoji {
+    font-size: 64px;
+  }
+
+  .edit-story-page__loading-title,
+  .edit-story-page__complete-title {
+    font-size: 20px;
+  }
+
+  .edit-story-page__loading-bar {
+    width: 240px;
+  }
+
+  .edit-story-page__big-btn {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+
+  .edit-story-page__question-card {
+    padding: 20px;
+  }
+
+  .edit-story-page__stage-title {
+    font-size: 14px;
+  }
+
+  .edit-story-page__question-text {
+    font-size: 18px;
+  }
+
+  .edit-story-page__choice-card {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .edit-story-page__choice-icon {
+    font-size: 40px;
+  }
+
+  .edit-story-page__choice-title {
+    font-size: 16px;
+  }
+
+  .edit-story-page__custom-input {
+    height: 120px;
+    font-size: 15px;
+  }
+}
+
+/* ============================================
+   🖥️ 큰 화면 최적화 (1440px+)
+   ============================================ */
+@media (min-width: 1440px) {
+  .edit-story-page__main--fullscreen {
+    max-width: 1400px;
+  }
+
+  .edit-story-page__video-emoji {
+    font-size: 140px;
+  }
+
+  .edit-story-page__complete-title {
+    font-size: 42px;
+  }
+
+  .edit-story-page__question-text {
+    font-size: 32px;
+  }
+
+  .edit-story-page__choice-card {
+    padding: 48px 40px;
+  }
+
+  .edit-story-page__choice-icon {
+    font-size: 80px;
+  }
+
+  .edit-story-page__choice-title {
+    font-size: 24px;
+  }
+}

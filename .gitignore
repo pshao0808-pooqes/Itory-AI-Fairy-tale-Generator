@@ -1,0 +1,267 @@
+# ==================================================================================
+# AI 동화 생성 시스템 - .gitignore
+# ==================================================================================
+
+# ==================================================================================
+# 🔐 보안 관련 (절대 커밋하면 안됨!)
+# ==================================================================================
+.env
+.env.local
+.env.*.local
+*.key
+secrets/
+
+# API 키 및 설정 파일 (민감 정보 포함)
+backend/finalss/.env
+backend/web_endpoint/.env
+
+# ==================================================================================
+# 🎬 생성된 미디어 파일 (용량이 크고 재생성 가능)
+# ==================================================================================
+# 백엔드 출력 폴더
+backend/finalss/output/
+backend/finalss/stages/
+backend/finalss/final/
+
+# 생성된 미디어 파일들
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
+# 자막 파일
+*.srt
+*.vtt
+
+# 임시 미디어 파일
+*_temp.*
+*_padded.*
+*_merged.*
+
+# ==================================================================================
+# 🐍 Python 관련
+# ==================================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# ==================================================================================
+# 📦 Node.js / JavaScript 관련
+# ==================================================================================
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Production builds
+dist/
+build/
+.next/
+out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage/
+
+# Cache
+.npm
+.eslintcache
+.node_repl_history
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ==================================================================================
+# 🗄️ 데이터베이스 관련
+# ==================================================================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==================================================================================
+# 🖥️ IDE / 에디터 설정
+# ==================================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ==================================================================================
+# 💻 운영 체제 관련
+# ==================================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ==================================================================================
+# 📦 압축 파일 (일반적으로 불필요)
+# ==================================================================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ==================================================================================
+# 🔧 프로젝트 특정
+# ==================================================================================
+# 백엔드 테스트 파일
+backend/finalss/test_*.py
+backend/finalss/*_test.py
+
+# 프론트엔드 빌드 아티팩트
+frontend/dist/
+frontend/build/
+
+# 로그 파일
+*.log
+logs/
+
+# 임시 파일
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# 상태 저장 파일 (세션 데이터)
+*.state.json
+sessions/
+
+# FFmpeg 임시 파일
+ffmpeg2pass-*.log
+
+# ==================================================================================
+# 📝 문서 제외 (필요시 주석 해제)
+# ==================================================================================
+# *.pdf
+# *.doc
+# *.docx
+
+# ==================================================================================
+# ✅ 예외 (특정 파일은 포함)
+# ==================================================================================
+# 설정 파일 템플릿은 포함 (실제 키는 제외)
+!.env.example
+!.env.template
+
+# 샘플 이미지는 포함 가능 (작은 용량)
+# !assets/sample.png
+
+# README 등 문서는 포함
+!README.md
+!WORKFLOW.md
+!LICENSE

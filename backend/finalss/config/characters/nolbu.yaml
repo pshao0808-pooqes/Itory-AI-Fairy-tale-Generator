@@ -1,0 +1,35 @@
+# ==================================================================================
+# nolbu.yaml - 놀부 캐릭터 프로필
+# ==================================================================================
+
+name: "Nolbu"
+name_kr: "놀부"
+role: "Greedy Brother"
+
+appearance:
+  age: "50s male"
+  body: "chubby round belly"
+  face: "mean face, thin mustache"
+
+clothes:
+  description: "Rich purple/navy silk Hanbok, tall black Gat (hat)"
+  colors:
+    - "purple"
+    - "navy"
+  accessories:
+    - "tall black Gat (traditional hat)"
+
+personality:
+  - "greedy"
+  - "selfish"
+  - "arrogant"
+  - "jealous"
+
+# LLM 프롬프트용 전체 프로필 텍스트
+profile_prompt: |
+  Character: NOLBU (Greedy Brother)
+  - Appearance: 50s male, chubby round belly, mean face, thin mustache.
+  - Clothes: Rich purple/navy silk Hanbok, tall black Gat (hat).
+
+# 레퍼런스 이미지 파일명
+ref_image_filename: "character_nolbu_ref.png"

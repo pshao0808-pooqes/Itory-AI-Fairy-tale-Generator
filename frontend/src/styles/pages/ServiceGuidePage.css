@@ -1,0 +1,828 @@
+/* ============================================
+   📖 아이토리 - 서비스 가이드 (튜토리얼 스타일)
+   ============================================ */
+
+.service-guide-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름
+   ============================================ */
+.service-guide-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.service-guide-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.8;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.service-guide-page__cloud::before,
+.service-guide-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.service-guide-page__cloud--1 {
+  width: 120px;
+  height: 50px;
+  top: 10%;
+  left: 5%;
+}
+
+.service-guide-page__cloud--1::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 20px;
+}
+
+.service-guide-page__cloud--1::after {
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 55px;
+}
+
+.service-guide-page__cloud--2 {
+  width: 140px;
+  height: 50px;
+  top: 8%;
+  right: 10%;
+}
+
+.service-guide-page__cloud--2::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 25px;
+}
+
+.service-guide-page__cloud--2::after {
+  width: 50px;
+  height: 50px;
+  top: -22px;
+  left: 65px;
+}
+
+.service-guide-page__cloud--3 {
+  width: 100px;
+  height: 38px;
+  top: 35%;
+  right: -20px;
+}
+
+.service-guide-page__cloud--3::before {
+  width: 48px;
+  height: 48px;
+  top: -24px;
+  left: 15px;
+}
+
+.service-guide-page__cloud--3::after {
+  width: 35px;
+  height: 35px;
+  top: -15px;
+  left: 45px;
+}
+
+.service-guide-page__cloud--4 {
+  width: 90px;
+  height: 35px;
+  bottom: 20%;
+  left: 3%;
+}
+
+.service-guide-page__cloud--4::before {
+  width: 42px;
+  height: 42px;
+  top: -21px;
+  left: 12px;
+}
+
+.service-guide-page__cloud--4::after {
+  width: 32px;
+  height: 32px;
+  top: -14px;
+  left: 38px;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.service-guide-page__header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.service-guide-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.service-guide-page__back-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 20px rgba(93, 78, 55, 0.15);
+  transition: all 0.2s ease;
+  color: #5D4E37;
+}
+
+.service-guide-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 10px 28px rgba(93, 78, 55, 0.2);
+}
+
+.service-guide-page__back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #E8D4C4;
+}
+
+.service-guide-page__logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
+.service-guide-page__start-btn {
+  background: linear-gradient(180deg, #FF9F4D 0%, #F5A623 100%);
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #D4880F,
+    0 6px 20px rgba(245, 166, 35, 0.35);
+  transition: all 0.2s ease;
+}
+
+.service-guide-page__start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #D4880F,
+    0 10px 28px rgba(245, 166, 35, 0.45);
+}
+
+.service-guide-page__start-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #D4880F;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.service-guide-page__main {
+  padding: 20px 40px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   🎯 인트로
+   ============================================ */
+.service-guide-page__intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.service-guide-page__intro-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.service-guide-page__intro-desc {
+  font-size: 18px;
+  color: #6B5D4D;
+  font-weight: 500;
+}
+
+/* ============================================
+   📍 스텝 섹션 공통
+   ============================================ */
+.service-guide-page__step-section {
+  background: white;
+  border-radius: 32px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.service-guide-page__step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.service-guide-page__step-badge {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 0 #388E3C;
+}
+
+.service-guide-page__step-badge--final {
+  background: linear-gradient(135deg, #FF9F4D 0%, #F5A623 100%);
+  box-shadow: 0 3px 0 #D4880F;
+}
+
+.service-guide-page__step-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3D3425;
+}
+
+.service-guide-page__step-desc {
+  font-size: 16px;
+  color: #6B5D4D;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   📚 Step 1: 동화 그리드
+   ============================================ */
+.service-guide-page__fairytale-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.service-guide-page__fairytale-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: #FFF9F0;
+  border: 2px solid #F5F0E8;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.service-guide-page__fairytale-item:hover {
+  border-color: #FFE082;
+  background: #FFF8E1;
+  transform: translateY(-2px);
+}
+
+.service-guide-page__fairytale-emoji {
+  font-size: 28px;
+}
+
+.service-guide-page__fairytale-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #5D4E37;
+}
+
+.service-guide-page__fairytale-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #E8E0D4 0%, #D8D0C4 100%);
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #8B7D6B;
+}
+
+/* ============================================
+   🎨 Step 2: 그림체 그리드
+   ============================================ */
+.service-guide-page__art-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.service-guide-page__art-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+  background: white;
+  border: 3px solid var(--art-color, #E8E0D4);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.service-guide-page__art-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-guide-page__art-emoji {
+  width: 56px;
+  height: 56px;
+  background: var(--art-color, #F5F0E8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.service-guide-page__art-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-guide-page__art-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.service-guide-page__art-desc {
+  font-size: 12px;
+  color: #8B7D6B;
+}
+
+/* ============================================
+   ✨ Step 3: 스토리 플로우
+   ============================================ */
+.service-guide-page__story-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.service-guide-page__story-stage {
+  flex: 1;
+  min-width: 160px;
+  padding: 20px 16px;
+  background: #FFF9F0;
+  border-radius: 20px;
+  border: 2px solid #F5F0E8;
+  position: relative;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.service-guide-page__story-stage:hover {
+  border-color: #FFE082;
+  background: #FFF8E1;
+}
+
+.service-guide-page__story-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.service-guide-page__story-stage-num {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.service-guide-page__story-stage-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.service-guide-page__story-stage-desc {
+  font-size: 13px;
+  color: #6B5D4D;
+  margin-bottom: 8px;
+}
+
+.service-guide-page__story-stage-example {
+  font-size: 12px;
+  color: #9C27B0;
+  font-style: italic;
+}
+
+.service-guide-page__story-arrow {
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #E1BEE7 0%, #CE93D8 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7B1FA2;
+  z-index: 2;
+}
+
+.service-guide-page__story-tip {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #5D4E37;
+  border-left: 4px solid #FFB300;
+}
+
+.service-guide-page__story-tip strong {
+  color: #F5A623;
+}
+
+/* ============================================
+   🎬 Step 4: 결과 기능
+   ============================================ */
+.service-guide-page__result-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.service-guide-page__result-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #FFF9F0;
+  border: 2px solid #F5F0E8;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.service-guide-page__result-item:hover {
+  border-color: #FFE082;
+  transform: translateX(4px);
+}
+
+.service-guide-page__result-icon {
+  width: 52px;
+  height: 52px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 3px 0 #E8E0D4;
+  flex-shrink: 0;
+}
+
+.service-guide-page__result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-guide-page__result-content strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3D3425;
+}
+
+.service-guide-page__result-content span {
+  font-size: 13px;
+  color: #8B7D6B;
+}
+
+/* ============================================
+   🚀 최종 CTA
+   ============================================ */
+.service-guide-page__final-cta {
+  background: linear-gradient(135deg, #FFF4E0 0%, #FFE8C4 100%);
+  border-radius: 32px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 6px 32px rgba(245, 166, 35, 0.15);
+}
+
+.service-guide-page__final-cta-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.service-guide-page__final-cta-desc {
+  font-size: 18px;
+  color: #6B5D4D;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.service-guide-page__final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #FF9F4D 0%, #F5A623 100%);
+  padding: 22px 48px;
+  border-radius: 60px;
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #D4880F,
+    0 8px 30px rgba(245, 166, 35, 0.4);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.service-guide-page__final-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 60px 60px 0 0;
+}
+
+.service-guide-page__final-cta-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 0 #D4880F,
+    0 14px 40px rgba(245, 166, 35, 0.5);
+}
+
+.service-guide-page__final-cta-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #D4880F;
+}
+
+/* ============================================
+   📎 푸터
+   ============================================ */
+.service-guide-page__footer {
+  text-align: center;
+  padding: 32px 20px;
+  color: #8B7D6B;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ============================================
+   📱 반응형
+   ============================================ */
+@media (max-width: 1024px) {
+  .service-guide-page__fairytale-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-guide-page__art-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-guide-page__story-flow {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .service-guide-page__story-stage {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-guide-page__header {
+    padding: 16px 20px;
+  }
+
+  .service-guide-page__header-left {
+    gap: 12px;
+  }
+
+  .service-guide-page__logo-img {
+    height: 44px;
+  }
+
+  .service-guide-page__back-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .service-guide-page__start-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .service-guide-page__main {
+    padding: 16px 20px 50px;
+  }
+
+  .service-guide-page__intro-title {
+    font-size: 30px;
+  }
+
+  .service-guide-page__intro-desc {
+    font-size: 16px;
+  }
+
+  .service-guide-page__step-section {
+    padding: 28px 24px;
+    border-radius: 24px;
+  }
+
+  .service-guide-page__step-title {
+    font-size: 22px;
+  }
+
+  .service-guide-page__fairytale-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-guide-page__art-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-guide-page__art-item:last-child {
+    grid-column: span 2;
+  }
+
+  .service-guide-page__story-flow {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .service-guide-page__story-stage {
+    min-width: 100%;
+  }
+
+  .service-guide-page__story-arrow {
+    display: none;
+  }
+
+  .service-guide-page__result-features {
+    grid-template-columns: 1fr;
+  }
+
+  .service-guide-page__final-cta {
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+
+  .service-guide-page__final-cta-title {
+    font-size: 26px;
+  }
+
+  .service-guide-page__final-cta-btn {
+    padding: 18px 36px;
+    font-size: 18px;
+  }
+
+  .service-guide-page__cloud--3,
+  .service-guide-page__cloud--4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-guide-page__header {
+    padding: 14px 16px;
+  }
+
+  .service-guide-page__header-left {
+    gap: 10px;
+  }
+
+  .service-guide-page__logo-img {
+    height: 36px;
+  }
+
+  .service-guide-page__back-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .service-guide-page__start-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .service-guide-page__intro-title {
+    font-size: 26px;
+  }
+
+  .service-guide-page__step-section {
+    padding: 24px 20px;
+  }
+
+  .service-guide-page__step-badge {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .service-guide-page__step-title {
+    font-size: 20px;
+  }
+
+  .service-guide-page__fairytale-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-guide-page__fairytale-more {
+    display: none;
+  }
+
+  .service-guide-page__art-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-guide-page__art-item {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .service-guide-page__art-item:last-child {
+    grid-column: span 1;
+  }
+
+  .service-guide-page__art-emoji {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .service-guide-page__result-item {
+    padding: 16px 18px;
+  }
+
+  .service-guide-page__result-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .service-guide-page__final-cta-title {
+    font-size: 22px;
+  }
+
+  .service-guide-page__final-cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 28px;
+    font-size: 17px;
+  }
+}

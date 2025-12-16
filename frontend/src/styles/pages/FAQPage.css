@@ -1,0 +1,521 @@
+/* ============================================
+   ❓ 아이토리 - 자주 묻는 질문 페이지 CSS
+   크림톤/클레이 스타일
+   ============================================ */
+
+.faq-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름
+   ============================================ */
+.faq-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.faq-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.8;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.faq-page__cloud::before,
+.faq-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.faq-page__cloud--1 {
+  width: 120px;
+  height: 48px;
+  top: 10%;
+  left: 5%;
+}
+
+.faq-page__cloud--1::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 20px;
+}
+
+.faq-page__cloud--1::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 52px;
+}
+
+.faq-page__cloud--2 {
+  width: 140px;
+  height: 52px;
+  top: 8%;
+  right: 10%;
+}
+
+.faq-page__cloud--2::before {
+  width: 62px;
+  height: 62px;
+  top: -30px;
+  left: 25px;
+}
+
+.faq-page__cloud--2::after {
+  width: 48px;
+  height: 48px;
+  top: -22px;
+  left: 65px;
+}
+
+.faq-page__cloud--3 {
+  width: 100px;
+  height: 38px;
+  bottom: 30%;
+  left: 3%;
+}
+
+.faq-page__cloud--3::before {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 15px;
+}
+
+.faq-page__cloud--3::after {
+  width: 34px;
+  height: 34px;
+  top: -14px;
+  left: 42px;
+}
+
+.faq-page__cloud--4 {
+  width: 110px;
+  height: 42px;
+  bottom: 25%;
+  right: 5%;
+}
+
+.faq-page__cloud--4::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 18px;
+}
+
+.faq-page__cloud--4::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 48px;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.faq-page__header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.faq-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-page__back-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 20px rgba(93, 78, 55, 0.15);
+  transition: all 0.2s ease;
+  color: #5D4E37;
+}
+
+.faq-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 10px 28px rgba(93, 78, 55, 0.2);
+}
+
+.faq-page__back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #E8D4C4;
+}
+
+.faq-page__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.faq-page__main {
+  padding: 20px 40px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* 인트로 */
+.faq-page__intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-page__intro-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: white;
+  box-shadow:
+    0 4px 0 #7B1FA2,
+    0 8px 24px rgba(156, 39, 176, 0.3);
+}
+
+.faq-page__intro-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 8px;
+}
+
+.faq-page__intro-desc {
+  font-size: 16px;
+  color: #6B5D4D;
+  font-weight: 500;
+}
+
+/* ============================================
+   📋 FAQ 카테고리
+   ============================================ */
+.faq-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.faq-page__category {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.faq-page__category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  background: var(--category-color, #F5F0E8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.faq-page__category-icon {
+  font-size: 28px;
+}
+
+.faq-page__category-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3D3425;
+  flex: 1;
+}
+
+.faq-page__category-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8B7D6B;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* 질문 목록 */
+.faq-page__questions {
+  padding: 8px 0;
+}
+
+.faq-page__item {
+  border-bottom: 1px solid #F5F0E8;
+}
+
+.faq-page__item:last-child {
+  border-bottom: none;
+}
+
+.faq-page__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.faq-page__question:hover {
+  background: #FFF9F0;
+}
+
+.faq-page__question-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3D3425;
+  line-height: 1.5;
+}
+
+.faq-page__arrow {
+  color: #8B7D6B;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-page__arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* 답변 */
+.faq-page__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-page__answer.visible {
+  max-height: 300px;
+  padding: 0 24px 18px 24px;
+}
+
+.faq-page__answer p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6B5D4D;
+  background: #FFF9F0;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #FFB300;
+}
+
+/* ============================================
+   📧 문의하기
+   ============================================ */
+.faq-page__contact {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-radius: 24px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow:
+    0 4px 0 #A5D6A7,
+    0 8px 24px rgba(76, 175, 80, 0.15);
+}
+
+.faq-page__contact-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-page__contact-icon {
+  color: #4CAF50;
+}
+
+.faq-page__contact-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2E7D32;
+  margin-bottom: 4px;
+}
+
+.faq-page__contact-text p {
+  font-size: 14px;
+  color: #5D8A5E;
+}
+
+.faq-page__contact-btn {
+  padding: 14px 32px;
+  background: linear-gradient(180deg, #4CAF50 0%, #66BB6A 100%);
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #388E3C,
+    0 6px 20px rgba(76, 175, 80, 0.3);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.faq-page__contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #388E3C,
+    0 10px 28px rgba(76, 175, 80, 0.4);
+}
+
+.faq-page__contact-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #388E3C;
+}
+
+/* ============================================
+   📎 푸터
+   ============================================ */
+.faq-page__footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: #8B7D6B;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ============================================
+   📱 반응형
+   ============================================ */
+@media (max-width: 768px) {
+  .faq-page__header {
+    padding: 16px 20px;
+  }
+
+  .faq-page__main {
+    padding: 16px 20px 50px;
+  }
+
+  .faq-page__intro-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .faq-page__intro-title {
+    font-size: 26px;
+  }
+
+  .faq-page__category-header {
+    padding: 16px 20px;
+  }
+
+  .faq-page__question {
+    padding: 16px 20px;
+  }
+
+  .faq-page__answer.visible {
+    padding: 0 20px 16px 20px;
+  }
+
+  .faq-page__contact {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .faq-page__contact-content {
+    flex-direction: column;
+  }
+
+  .faq-page__contact-btn {
+    width: 100%;
+  }
+
+  .faq-page__cloud--3,
+  .faq-page__cloud--4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-page__header {
+    padding: 14px 16px;
+  }
+
+  .faq-page__header-left {
+    gap: 10px;
+  }
+
+  .faq-page__logo-img {
+    height: 40px;
+  }
+
+  .faq-page__back-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .faq-page__intro-title {
+    font-size: 22px;
+  }
+
+  .faq-page__category {
+    border-radius: 20px;
+  }
+
+  .faq-page__category-icon {
+    font-size: 24px;
+  }
+
+  .faq-page__category-title {
+    font-size: 16px;
+  }
+
+  .faq-page__question-text {
+    font-size: 14px;
+  }
+
+  .faq-page__answer p {
+    font-size: 13px;
+    padding: 14px 16px;
+  }
+}

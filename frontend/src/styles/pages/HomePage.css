@@ -1,0 +1,774 @@
+/* ============================================
+   🌳 아이토리 - Home Page CSS (이미지 + 하단 텍스트 연결)
+   ============================================ */
+
+/* ============================================
+   🌈 베이스 & 배경
+   ============================================ */
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름 장식
+   ============================================ */
+.home-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.home-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.9;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.04),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.home-page__cloud::before,
+.home-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.home-page__cloud--1 {
+  width: 130px;
+  height: 52px;
+  top: 12%;
+  left: 5%;
+}
+
+.home-page__cloud--1::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 22px;
+}
+
+.home-page__cloud--1::after {
+  width: 46px;
+  height: 46px;
+  top: -20px;
+  left: 56px;
+}
+
+.home-page__cloud--2 {
+  width: 150px;
+  height: 55px;
+  top: 8%;
+  right: 8%;
+}
+
+.home-page__cloud--2::before {
+  width: 68px;
+  height: 68px;
+  top: -34px;
+  left: 28px;
+}
+
+.home-page__cloud--2::after {
+  width: 52px;
+  height: 52px;
+  top: -24px;
+  left: 70px;
+}
+
+.home-page__cloud--3 {
+  width: 110px;
+  height: 42px;
+  top: 25%;
+  left: 15%;
+}
+
+.home-page__cloud--3::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 18px;
+}
+
+.home-page__cloud--3::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 48px;
+}
+
+.home-page__cloud--4 {
+  width: 120px;
+  height: 45px;
+  top: 20%;
+  right: 12%;
+}
+
+.home-page__cloud--4::before {
+  width: 54px;
+  height: 54px;
+  top: -27px;
+  left: 20px;
+}
+
+.home-page__cloud--4::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 52px;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.home-page__main {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px;
+  padding-bottom: 200px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   👋 상단 섹션 (환영 + 사용량)
+   ============================================ */
+.home-page__top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 32px 0 36px;
+  flex-wrap: wrap;
+}
+
+.home-page__welcome-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 24px 32px;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.home-page__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #FFE4B5 0%, #FFD4A8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  flex-shrink: 0;
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.home-page__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-page__welcome-text {
+  text-align: left;
+}
+
+.home-page__greeting {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 4px;
+}
+
+.home-page__sub-greeting {
+  font-size: 15px;
+  color: #8B7D6B;
+  font-weight: 500;
+}
+
+/* 사용량 카드 */
+.home-page__usage-card {
+  background: white;
+  padding: 20px 28px;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  min-width: 180px;
+}
+
+.home-page__usage-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8B7D6B;
+  margin-bottom: 10px;
+}
+
+.home-page__usage-bar {
+  width: 100%;
+  height: 10px;
+  background: #F0EBE3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.home-page__usage-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F5A623 0%, #FF8C42 100%);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.home-page__usage-text {
+  font-size: 14px;
+  color: #5D4E37;
+  font-weight: 600;
+  text-align: right;
+}
+
+.home-page__usage-text strong {
+  color: #F5A623;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* ============================================
+   🎴 카드 그리드 - 이미지 위 + 텍스트 아래 연결
+   ============================================ */
+.home-page__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.home-page__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background: white;
+  box-shadow:
+    0 4px 0 #E0D8CC,
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.home-page__card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 0 #E0D8CC,
+    0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.home-page__card:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #E0D8CC,
+    0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* 상단: 이미지 영역 */
+.home-page__card-image-area {
+  width: 100%;
+  height: 200px;
+  background: #F8F4ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home-page__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 하단: 텍스트 영역 - 이미지와 자연스럽게 연결 */
+.home-page__card-text-area {
+  padding: 20px 24px 24px;
+  text-align: center;
+  background: white;
+}
+
+.home-page__card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #3D3425;
+  margin-bottom: 6px;
+}
+
+.home-page__card-desc {
+  font-size: 14px;
+  color: #5D4E37;
+  font-weight: 500;
+}
+
+.home-page__card-count {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 16px;
+  background: #F5F0E8;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5D4E37;
+}
+
+/* ============================================
+   📖 가이드 버튼
+   ============================================ */
+.home-page__guide-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.home-page__guide-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: white;
+  border: 2px solid #E8D4C4;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5D4E37;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.home-page__guide-btn:hover {
+  border-color: #F5A623;
+  color: #F5A623;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 166, 35, 0.15);
+}
+
+.home-page__guide-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #F5A623;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ============================================
+   🌳 하단 풍경 장식
+   ============================================ */
+.home-page__landscape {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-page__grass {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  right: -5%;
+  height: 90px;
+  background: linear-gradient(180deg, #8BC34A 0%, #7CB342 50%, #689F38 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.home-page__tree {
+  position: absolute;
+  bottom: 65px;
+}
+
+.home-page__tree-top {
+  width: 55px;
+  height: 72px;
+  background: linear-gradient(180deg, #A5D651 0%, #8BC34A 50%, #7CB342 100%);
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  box-shadow: inset -6px -4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.home-page__tree-trunk {
+  width: 14px;
+  height: 26px;
+  background: linear-gradient(90deg, #8D6E63 0%, #6D4C41 100%);
+  border-radius: 4px;
+  margin: -4px auto 0;
+}
+
+.home-page__tree--1 {
+  left: 4%;
+}
+
+.home-page__tree--1 .home-page__tree-top {
+  width: 65px;
+  height: 85px;
+}
+
+.home-page__tree--1 .home-page__tree-trunk {
+  width: 16px;
+  height: 30px;
+}
+
+.home-page__tree--2 {
+  left: 14%;
+  bottom: 55px;
+}
+
+.home-page__tree--2 .home-page__tree-top {
+  width: 45px;
+  height: 58px;
+}
+
+.home-page__tree--2 .home-page__tree-trunk {
+  width: 11px;
+  height: 22px;
+}
+
+.home-page__tree--3 {
+  right: 10%;
+}
+
+.home-page__tree--3 .home-page__tree-top {
+  width: 60px;
+  height: 78px;
+}
+
+.home-page__tree--3 .home-page__tree-trunk {
+  width: 15px;
+  height: 28px;
+}
+
+.home-page__tree--4 {
+  right: 2%;
+  bottom: 52px;
+}
+
+.home-page__tree--4 .home-page__tree-top {
+  width: 42px;
+  height: 54px;
+}
+
+.home-page__tree--4 .home-page__tree-trunk {
+  width: 10px;
+  height: 20px;
+}
+
+.home-page__house {
+  position: absolute;
+  bottom: 68px;
+}
+
+.home-page__house-roof {
+  width: 0;
+  height: 0;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  border-bottom: 36px solid #FF8A65;
+  position: relative;
+}
+
+.home-page__house-roof::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: -32px;
+  width: 64px;
+  height: 29px;
+  background: #FFAB91;
+  border-radius: 0 0 4px 4px;
+}
+
+.home-page__house-body {
+  width: 64px;
+  height: 50px;
+  background: linear-gradient(180deg, #FFF8E1 0%, #FFECB3 100%);
+  margin: 0 auto;
+  margin-top: -1px;
+  position: relative;
+  border-radius: 0 0 4px 4px;
+  box-shadow: inset -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.home-page__house-window {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #81D4FA 0%, #4FC3F7 100%);
+  border: 3px solid #8D6E63;
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.home-page__house-door {
+  width: 18px;
+  height: 28px;
+  background: linear-gradient(180deg, #A1887F 0%, #8D6E63 100%);
+  border-radius: 3px 3px 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 12px;
+}
+
+.home-page__house--1 {
+  left: 30%;
+}
+
+.home-page__bush {
+  position: absolute;
+  bottom: 68px;
+  width: 36px;
+  height: 25px;
+  background: linear-gradient(180deg, #9CCC65 0%, #8BC34A 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset -3px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-page__bush--1 {
+  left: 22%;
+  width: 32px;
+  height: 22px;
+}
+
+.home-page__bush--2 {
+  right: 35%;
+  width: 40px;
+  height: 27px;
+  bottom: 65px;
+}
+
+.home-page__bush--3 {
+  right: 22%;
+  width: 34px;
+  height: 23px;
+}
+
+.home-page__bush--4 {
+  right: 6%;
+  width: 28px;
+  height: 20px;
+  bottom: 62px;
+}
+
+/* ============================================
+   📱 반응형 디자인
+   ============================================ */
+@media (max-width: 1024px) {
+  .home-page__main {
+    padding: 0 28px;
+    padding-bottom: 180px;
+  }
+
+  .home-page__card-image-area {
+    height: 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-page__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-page__cards .home-page__card:last-child {
+    grid-column: span 2;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page__main {
+    padding: 0 20px;
+    padding-bottom: 160px;
+  }
+
+  .home-page__top-section {
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0 28px;
+  }
+
+  .home-page__welcome-card {
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .home-page__avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 30px;
+    border-radius: 16px;
+  }
+
+  .home-page__greeting {
+    font-size: 20px;
+  }
+
+  .home-page__sub-greeting {
+    font-size: 14px;
+  }
+
+  .home-page__usage-card {
+    padding: 16px 24px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .home-page__cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-page__cards .home-page__card:last-child {
+    grid-column: span 1;
+    max-width: none;
+  }
+
+  .home-page__card {
+    flex-direction: row;
+  }
+
+  .home-page__card-image-area {
+    width: 140px;
+    height: auto;
+    min-height: 140px;
+    flex-shrink: 0;
+    border-radius: 24px 0 0 24px;
+  }
+
+  .home-page__card-text-area {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .home-page__card-title {
+    font-size: 18px;
+  }
+
+  .home-page__guide-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .home-page__landscape {
+    height: 120px;
+  }
+
+  .home-page__grass {
+    height: 70px;
+  }
+
+  .home-page__tree--2,
+  .home-page__tree--4,
+  .home-page__bush--1,
+  .home-page__bush--4,
+  .home-page__cloud--3,
+  .home-page__cloud--4 {
+    display: none;
+  }
+
+  .home-page__tree {
+    bottom: 48px;
+  }
+
+  .home-page__house {
+    bottom: 52px;
+  }
+
+  .home-page__bush {
+    bottom: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page__main {
+    padding: 0 16px;
+    padding-bottom: 140px;
+  }
+
+  .home-page__welcome-card {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .home-page__avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+  }
+
+  .home-page__greeting {
+    font-size: 18px;
+  }
+
+  .home-page__card-image-area {
+    width: 120px;
+    min-height: 120px;
+  }
+
+  .home-page__card-text-area {
+    padding: 16px;
+  }
+
+  .home-page__card-title {
+    font-size: 17px;
+  }
+
+  .home-page__card-desc {
+    font-size: 13px;
+  }
+
+  .home-page__guide-btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .home-page__landscape {
+    height: 100px;
+  }
+
+  .home-page__grass {
+    height: 60px;
+  }
+}

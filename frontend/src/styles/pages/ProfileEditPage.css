@@ -1,0 +1,648 @@
+/* ============================================
+   ✏️ 아이토리 - 프로필 수정 페이지 CSS
+   크림톤/클레이 스타일 + 가로 화면 최적화
+   ============================================ */
+
+.profile-edit-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+      #FFF9F0 0%,
+      #F8F4ED 30%,
+      #F5F0E8 60%,
+      #F0EBE3 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   ☁️ 배경 구름
+   ============================================ */
+.profile-edit-page__bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.profile-edit-page__cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  filter: blur(1px);
+  opacity: 0.8;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.profile-edit-page__cloud::before,
+.profile-edit-page__cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.profile-edit-page__cloud--1 {
+  width: 120px;
+  height: 48px;
+  top: 10%;
+  left: 5%;
+}
+
+.profile-edit-page__cloud--1::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 20px;
+}
+
+.profile-edit-page__cloud--1::after {
+  width: 42px;
+  height: 42px;
+  top: -18px;
+  left: 52px;
+}
+
+.profile-edit-page__cloud--2 {
+  width: 140px;
+  height: 52px;
+  top: 8%;
+  right: 10%;
+}
+
+.profile-edit-page__cloud--2::before {
+  width: 62px;
+  height: 62px;
+  top: -30px;
+  left: 25px;
+}
+
+.profile-edit-page__cloud--2::after {
+  width: 48px;
+  height: 48px;
+  top: -22px;
+  left: 65px;
+}
+
+.profile-edit-page__cloud--3 {
+  width: 100px;
+  height: 38px;
+  bottom: 25%;
+  left: 8%;
+}
+
+.profile-edit-page__cloud--3::before {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 15px;
+}
+
+.profile-edit-page__cloud--3::after {
+  width: 34px;
+  height: 34px;
+  top: -14px;
+  left: 42px;
+}
+
+.profile-edit-page__cloud--4 {
+  width: 110px;
+  height: 42px;
+  bottom: 20%;
+  right: 5%;
+}
+
+.profile-edit-page__cloud--4::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 18px;
+}
+
+.profile-edit-page__cloud--4::after {
+  width: 38px;
+  height: 38px;
+  top: -16px;
+  left: 48px;
+}
+
+/* ============================================
+   📌 헤더
+   ============================================ */
+.profile-edit-page__header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-edit-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-edit-page__back-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 0 #E8D4C4,
+    0 6px 20px rgba(93, 78, 55, 0.15);
+  transition: all 0.2s ease;
+  color: #5D4E37;
+}
+
+.profile-edit-page__back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #E8D4C4,
+    0 10px 28px rgba(93, 78, 55, 0.2);
+}
+
+.profile-edit-page__back-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #E8D4C4;
+}
+
+.profile-edit-page__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.profile-edit-page__header-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3D3425;
+}
+
+/* ============================================
+   📦 메인 콘텐츠
+   ============================================ */
+.profile-edit-page__main {
+  padding: 20px 40px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-edit-page__content {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   📷 왼쪽: 프로필 아바타 섹션
+   ============================================ */
+.profile-edit-page__left {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.profile-edit-page__photo-section {
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.profile-edit-page__section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 24px;
+}
+
+/* 프로필 미리보기 */
+.profile-edit-page__photo-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-edit-page__preview-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #66BB6A;
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  box-shadow:
+    0 6px 0 #4CAF50,
+    0 10px 30px rgba(76, 175, 80, 0.2);
+}
+
+.profile-edit-page__avatar-hint {
+  text-align: center;
+  font-size: 14px;
+  color: #8B7D6B;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* 아바타 이미지 그리드 */
+.profile-edit-page__avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.profile-edit-page__avatar-btn {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #FFF9F0;
+  border: 3px solid #E8E0D4;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.profile-edit-page__avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-edit-page__avatar-btn:hover {
+  transform: scale(1.08);
+  border-color: #81C784;
+}
+
+.profile-edit-page__avatar-btn.selected {
+  border-color: #4CAF50;
+  border-width: 4px;
+  box-shadow:
+    0 4px 0 #388E3C,
+    0 6px 16px rgba(76, 175, 80, 0.3);
+}
+
+/* ============================================
+   📝 오른쪽: 기본 정보
+   ============================================ */
+.profile-edit-page__right {
+  height: fit-content;
+}
+
+.profile-edit-page__info-section {
+  background: white;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow:
+    0 4px 0 #E8E0D4,
+    0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.profile-edit-page__field {
+  margin-bottom: 28px;
+}
+
+.profile-edit-page__field:last-of-type {
+  margin-bottom: 24px;
+}
+
+.profile-edit-page__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #3D3425;
+  margin-bottom: 12px;
+}
+
+.profile-edit-page__label .required {
+  color: #FF5252;
+}
+
+/* 입력 필드 */
+.profile-edit-page__input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 3px solid #E8E0D4;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3D3425;
+  background: #FFF9F0;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.profile-edit-page__input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background: white;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.15);
+}
+
+.profile-edit-page__input.error {
+  border-color: #FF5252;
+  background: #FFF5F5;
+}
+
+.profile-edit-page__input::placeholder {
+  color: #B8A89A;
+}
+
+.profile-edit-page__error {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #FF5252;
+  font-weight: 500;
+}
+
+/* 나이 선택 */
+.profile-edit-page__age-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+}
+
+.profile-edit-page__age-btn {
+  padding: 14px 8px;
+  background: #FFF9F0;
+  border: 3px solid #E8E0D4;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5D4E37;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-edit-page__age-btn:hover {
+  border-color: #81C784;
+  transform: translateY(-2px);
+}
+
+.profile-edit-page__age-btn.selected {
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 0 #388E3C;
+}
+
+/* 현재 프로필 정보 */
+.profile-edit-page__current-info {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 2px solid #FFE082;
+}
+
+.profile-edit-page__info-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #F5A623;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.profile-edit-page__info-details {
+  display: flex;
+  gap: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5D4E37;
+}
+
+/* ============================================
+   🔘 하단 버튼
+   ============================================ */
+.profile-edit-page__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.profile-edit-page__cancel-btn {
+  padding: 18px 40px;
+  background: white;
+  border: 3px solid #E8E0D4;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #5D4E37;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #E8E0D4;
+  transition: all 0.2s ease;
+}
+
+.profile-edit-page__cancel-btn:hover {
+  border-color: #D8D0C4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #E8E0D4;
+}
+
+.profile-edit-page__submit-btn {
+  padding: 18px 48px;
+  background: linear-gradient(180deg, #4CAF50 0%, #66BB6A 100%);
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 5px 0 #388E3C,
+    0 8px 28px rgba(76, 175, 80, 0.35);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.profile-edit-page__submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 50px 50px 0 0;
+}
+
+.profile-edit-page__submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 0 #388E3C,
+    0 12px 36px rgba(76, 175, 80, 0.45);
+}
+
+.profile-edit-page__submit-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #388E3C;
+}
+
+/* ============================================
+   📎 푸터
+   ============================================ */
+.profile-edit-page__footer {
+  text-align: center;
+  padding: 24px 20px;
+  color: #8B7D6B;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ============================================
+   📱 반응형
+   ============================================ */
+@media (max-width: 1024px) {
+  .profile-edit-page__content {
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+  }
+
+  .profile-edit-page__age-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-edit-page__header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .profile-edit-page__header-title {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .profile-edit-page__main {
+    padding: 16px 20px 50px;
+  }
+
+  .profile-edit-page__content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .profile-edit-page__left {
+    position: relative;
+    top: 0;
+  }
+
+  .profile-edit-page__photo-section,
+  .profile-edit-page__info-section {
+    padding: 24px;
+  }
+
+  .profile-edit-page__preview-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-edit-page__avatar-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .profile-edit-page__age-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .profile-edit-page__actions {
+    flex-direction: column;
+  }
+
+  .profile-edit-page__cancel-btn,
+  .profile-edit-page__submit-btn {
+    width: 100%;
+  }
+
+  .profile-edit-page__cloud--3,
+  .profile-edit-page__cloud--4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-edit-page__header {
+    padding: 14px 16px;
+  }
+
+  .profile-edit-page__header-left {
+    gap: 10px;
+  }
+
+  .profile-edit-page__logo-img {
+    height: 40px;
+  }
+
+  .profile-edit-page__back-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .profile-edit-page__header-title {
+    font-size: 20px;
+  }
+
+  .profile-edit-page__photo-section,
+  .profile-edit-page__info-section {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .profile-edit-page__section-title {
+    font-size: 18px;
+  }
+
+  .profile-edit-page__preview-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-edit-page__avatar-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .profile-edit-page__avatar-btn {
+    border-width: 2px;
+  }
+
+  .profile-edit-page__avatar-btn.selected {
+    border-width: 3px;
+  }
+
+  .profile-edit-page__age-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .profile-edit-page__info-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .profile-edit-page__cancel-btn,
+  .profile-edit-page__submit-btn {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
