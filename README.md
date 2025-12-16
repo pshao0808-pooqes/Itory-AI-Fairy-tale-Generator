@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎬 AI 동화 생성 시스템 (AI Fairy Tale Generator)
 
 > **AI 에이전트 협업을 통한 인터랙티브 동화 영상 생성 플랫폼**
@@ -468,3 +469,6 @@ uvicorn.run(app, host="0.0.0.0", port=8001)
 ---
 
 **Made with ❤️ by 2nd Team**
+=======
+# Itory-AI-Fairy-tale-Generator
+>>>>>>> 6ca17653a5d0ee4e690c2321fcb5ed37719641b0
