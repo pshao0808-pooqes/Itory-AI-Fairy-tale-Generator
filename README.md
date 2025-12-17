@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # 🎬 AI 동화 생성 시스템 (AI Fairy Tale Generator)
-
+(DB포함 버전 참고:https://github.com/pshao0808-pooqes/Itory-DB-included)
 > **AI 에이전트 협업을 통한 인터랙티브 동화 영상 생성 플랫폼**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
